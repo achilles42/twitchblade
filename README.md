@@ -1,6 +1,5 @@
 ## TwichBlade
 
-
 ##Setup
 
 1. clone the project from github : https://github.com/spraveen1112/TwichBlade
