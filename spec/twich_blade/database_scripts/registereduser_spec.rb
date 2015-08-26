@@ -7,5 +7,11 @@ module TwichBlade
       registered_user = RegisteredUser.new(username)
       expect(registered_user.exists?).to eq(false)
     end
+
+    it 'should check the availibility of username' do
+      username = "praveen"
+      registered_user = RegisteredUser.new(username)
+      expect(registered_user.exists?).to eq(true)
+    end
   end
 end
