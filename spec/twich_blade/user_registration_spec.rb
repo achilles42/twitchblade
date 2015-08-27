@@ -36,9 +36,8 @@ module TwichBlade
         password = 'bar5'
         conn = PG.connect(:dbname => 'test_twichblade')
         new_user = UserRegistration.new(username, password)
-        new_user.register
         response = conn.exec("select username, password from users where username = $1 and password = $2",[username, password])
-        expect(response.ntuples).to eq(1)
+        expect(new_user.register.ntuples).to eq(response.ntuples)
       end
 
       it 'should not able to register new user with existing username' do
