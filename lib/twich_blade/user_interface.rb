@@ -20,10 +20,10 @@ module TwichBlade
           puts "Enter Password"
           @password = input
           response = UserRegistration.new(@username, @password).register
-          if response == :SUCCESS
-            puts "signed Up succesfully."
+          if response == :FAILED
+            puts "User already exist with this UserName."
           else
-
+            puts "Congrats !!! signed up succesfully"
           end
 
         elsif @input_string.to_i == 2
