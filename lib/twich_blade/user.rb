@@ -12,7 +12,7 @@ module TwichBlade
       if response.ntuples != 1
         :FAILED
       else
-        :SUCCESS
+        response
       end
     end
   end

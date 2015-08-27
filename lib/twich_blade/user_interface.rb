@@ -1,18 +1,47 @@
 module TwichBlade
+  #take input from user and call methods
   class UserInterface
     def initialize
+      @delegation = Delegation.new
     end
 
     def input
-      @input_string = Kernel.gets.chomp
+      Kernel.gets.chomp
     end
 
     def run
       display_index_page
-      input
-      while @input_string != "exit"
-        delegate_to_controller
-        input
+      @input_string = input
+      while @input_string != "logout"
+        if @input_string.to_i == 1
+          puts "Welcome to SignUp page"
+          puts "Enter UserName"
+          @username = input
+          puts "Enter Password"
+          @password = input
+          response = UserRegistration.new(@username, @password).register
+          if response == :SUCCESS
+            puts "signed Up succesfully."
+          else
+
+          end
+
+        elsif @input_string.to_i == 2
+          puts "Welcome to SignIn page"
+          puts "Enter UserName"
+          @username = input
+          puts "Enter Password"
+          @password = input
+          response = User.new(@username, @password).login
+          if response == :SUCCESS
+
+          else
+
+          end
+        else
+
+        end
+        @input_string = input
       end
     end
 
@@ -23,5 +52,6 @@ module TwichBlade
       puts "  2 SignIn"
       puts "Enter your Choice : "
     end
+
   end
 end

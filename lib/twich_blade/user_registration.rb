@@ -15,6 +15,7 @@ module TwichBlade
     def register
       if validate?
         @conn.exec("insert into users values(DEFAULT, $1, $2)",[@username, @password]);
+        :SUCCESS
       else
         :ERROR
       end
