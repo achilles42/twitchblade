@@ -45,7 +45,7 @@ module TwichBlade
         password = 'bar3'
         conn = PG.connect(:dbname => 'test_twichblade')
         new_user = UserRegistration.new(username, password)
-        expect(new_user.register).to eq(:ERROR)
+        expect(new_user.register).to eq(:FAILED)
       end
     end
   end

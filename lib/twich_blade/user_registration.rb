@@ -16,7 +16,7 @@ module TwichBlade
       if validate?
         @conn.exec("insert into users values(DEFAULT, $1, $2)",[@username, @password]);
       else
-        :ERROR
+        :FAILED
       end
     end
   end
