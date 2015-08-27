@@ -22,7 +22,7 @@ module TwichBlade
         expect(user.login).to eq(:SUCCESS)
       end
 
-      it 'should able to login succesfully' do
+      it 'should not able to login succesfully' do
         username = 'foo4'
         password = 'bar4'
         user = User.new(username, password)
