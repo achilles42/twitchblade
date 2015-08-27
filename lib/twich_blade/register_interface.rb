@@ -1,6 +1,6 @@
 module TwichBlade
   class RegisterInterface < UserInterface
-    def process
+    def display
       puts "-------------------------------"
       puts "   Welcome to SignUp Page"
       puts "-------------------------------"
@@ -13,7 +13,7 @@ module TwichBlade
         puts "------------------------------------------------"
         p "User already exist with this UserName. \n Please try again"
         puts "------------------------------------------------"
-        process
+        display
       else
         puts "------------------------------------------------"
         p "Congrats !!! signed up succesfully."

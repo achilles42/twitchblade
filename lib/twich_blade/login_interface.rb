@@ -1,6 +1,6 @@
 module TwichBlade
   class LoginInterface < UserInterface
-    def process
+    def display
       puts "--------------------------------"
       puts "   Welcome to SignIn page"
       puts "--------------------------------"
@@ -13,11 +13,12 @@ module TwichBlade
         puts "------------------------------------------------"
         puts "UserName or Password is incorrect. please try again"
         puts "------------------------------------------------"
-        process
+        display
       else
         puts "------------------------------------------------"
         puts "Welcome #{response.field_values('username')} !!! you are succesfully signed in."
         puts "------------------------------------------------"
+        TweetInterface.new.display(response)
       end
     end
   end

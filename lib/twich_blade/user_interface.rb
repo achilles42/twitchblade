@@ -18,7 +18,7 @@ module TwichBlade
         elsif @input_string.to_i == 2
           interface = LoginInterface.new
         end
-        interface.process
+        interface.display
         @input_string = input
       end
     end

@@ -12,6 +12,7 @@ module TwichBlade
     after(:each) do
       conn = PG.connect(:dbname => 'test_twichblade')
       conn.exec("delete from users")
+      conn.disconnect
     end
 
     context 'login' do
@@ -29,6 +30,19 @@ module TwichBlade
         password = 'bar4'
         user = User.new(username, password)
         expect(user.login).to eq(:FAILED)
+      end
+    end
+
+    context 'tweet' do
+      pending 'should able to tweet' do
+        username = 'foo1'
+        password = 'bar1'
+        tweet_message = 'c42 engineering it is...'
+        user_registration = UserRegistration.new(username, password)
+        response = user_registration.login
+        conn = PG.connect(:dbname => 'test_twichblade')
+        result = @conn.exec("insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP)",[response.field_values('id'), tweet_message])
+        expect(user_registration.tweet(tweet_message).ntuples).to eq(result.ntuples)
       end
     end
   end
