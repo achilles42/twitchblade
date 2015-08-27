@@ -1,4 +1,5 @@
 module TwichBlade
+  #database connection
   class DBConnection
     def initialize(dbname)
       @dbname = dbname

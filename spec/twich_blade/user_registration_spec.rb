@@ -16,10 +16,17 @@ module TwichBlade
 
     context 'validation' do
       it 'should able to check the availbility of username' do
-        username = 'foo'
-        password = 'bar'
+        username = 'foo1'
+        password = 'bar1'
         new_user = UserRegistration.new(username, password)
-        expect(new_user.validate).to eq(false)
+        expect(new_user.validate?).to eq(false)
+      end
+
+      it 'should able to check the availbility of username' do
+        username = 'foo4'
+        password = 'bar4'
+        new_user = UserRegistration.new(username, password)
+        expect(new_user.validate?).to eq(true)
       end
     end
   end
