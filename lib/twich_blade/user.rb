@@ -9,15 +9,15 @@ module TwichBlade
 
     def login
       @response = @conn.exec("select id, username, password from users where username = $1 and password = $2",[@username, @password])
-      if response.ntuples != 1
+      if @response.ntuples != 1
         :FAILED
       else
-        response
+        @response
       end
     end
 
     def tweet(tweet_message)
-      @conn.exec("insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP)",[@response.field_values('id'), tweet_message])
+      @conn.exec("insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP)",[@response.field_values('id')[0].to_i, tweet_message])
     end
   end
 end

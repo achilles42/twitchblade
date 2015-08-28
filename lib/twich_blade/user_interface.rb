@@ -15,10 +15,13 @@ module TwichBlade
         foo = nil
         if @input_string.to_i == 1
           interface = RegisterInterface.new
+          interface.display
         elsif @input_string.to_i == 2
           interface = LoginInterface.new
+          interface.display
+        else
+          print "Please Enter the correct choice : "
         end
-        interface.display
         @input_string = input
       end
     end

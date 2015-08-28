@@ -12,7 +12,7 @@ module TwichBlade
     after(:each) do
       conn = PG.connect(:dbname => 'test_twichblade')
       conn.exec("delete from users")
-      conn.disconnect
+      conn.close
     end
 
     context 'login' do
@@ -23,6 +23,7 @@ module TwichBlade
         conn = PG.connect(:dbname => 'test_twichblade')
         response = conn.exec("select username, password from users where username = $1 and password = $2",[username, password])
         expect(user.login.ntuples).to eq(response.ntuples)
+        conn.close
       end
 
       it 'should not able to login succesfully' do
@@ -37,12 +38,13 @@ module TwichBlade
       pending 'should able to tweet' do
         username = 'foo1'
         password = 'bar1'
-        tweet_message = 'c42 engineering it is...'
-        user_registration = UserRegistration.new(username, password)
+        tweet_message = 'C42 engineering it is...'
+        user_registration = User.new(username, password)
         response = user_registration.login
         conn = PG.connect(:dbname => 'test_twichblade')
-        result = @conn.exec("insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP)",[response.field_values('id'), tweet_message])
+        result = conn.exec("select * from tweets where tweet = $1",[tweet_message])
         expect(user_registration.tweet(tweet_message).ntuples).to eq(result.ntuples)
+        conn.close
       end
     end
   end
