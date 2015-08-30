@@ -13,7 +13,7 @@ module TwichBlade
         puts "------------------------------------------------"
         p "User already exist with this UserName. \n Please try again"
         puts "------------------------------------------------"
-        display
+        display_index_page
       else
         puts "------------------------------------------------"
         p "Congrats !!! signed up succesfully."

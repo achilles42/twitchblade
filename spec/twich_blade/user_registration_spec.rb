@@ -11,7 +11,9 @@ module TwichBlade
 
     after(:each) do
       conn = PG.connect(:dbname => 'test_twichblade')
+      conn.exec("delete from tweets")
       conn.exec("delete from users")
+      conn.close
     end
 
     context 'validation' do

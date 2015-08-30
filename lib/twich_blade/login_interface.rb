@@ -13,10 +13,10 @@ module TwichBlade
         puts "------------------------------------------------"
         puts "UserName or Password is incorrect. please try again"
         puts "------------------------------------------------"
-        display
+        display_index_page
       else
         puts "------------------------------------------------"
-        puts "Welcome #{response.field_values('username')} !!! you are succesfully signed in."
+        puts "Welcome #{response.field_values('username')[0]} !!! you are succesfully signed in."
         puts "------------------------------------------------"
         TweetInterface.new.display(response)
       end

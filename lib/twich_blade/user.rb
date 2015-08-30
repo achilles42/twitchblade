@@ -16,8 +16,8 @@ module TwichBlade
       end
     end
 
-    def tweet(tweet_message)
-      @conn.exec("insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP)",[@response.field_values('id')[0].to_i, tweet_message])
+    def tweet(tweet_message, response)
+      @conn.exec("insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP)",[response.field_values('id')[0].to_i, tweet_message])
     end
   end
 end

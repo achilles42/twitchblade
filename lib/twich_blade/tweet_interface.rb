@@ -5,13 +5,15 @@ module TwichBlade
       puts "  2 logout"
       print "Enter your choise : "
       choise = input
-      if input.to_i == 1
+      if choise.to_i == 1
         print "tweet : "
         tweet_message = input.to_s
-        User.new(response.field_values('username'), response.field_values('password')).tweet(tweet_message)
+        User.new(response.field_values('username'), response.field_values('password')).tweet(tweet_message, response)
         puts "Tweet succesfully"
+        display(response)
       else
-        return "logout"
+        puts "you are succesfully logout"
+        return exit
       end
     end
   end

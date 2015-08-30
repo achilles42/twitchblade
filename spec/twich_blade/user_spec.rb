@@ -11,6 +11,7 @@ module TwichBlade
 
     after(:each) do
       conn = PG.connect(:dbname => 'test_twichblade')
+      conn.exec("delete from tweets")
       conn.exec("delete from users")
       conn.close
     end
@@ -35,7 +36,7 @@ module TwichBlade
     end
 
     context 'tweet' do
-      pending 'should able to tweet' do
+      it 'should able to tweet' do
         username = 'foo1'
         password = 'bar1'
         tweet_message = 'C42 engineering it is...'
@@ -43,7 +44,7 @@ module TwichBlade
         response = user_registration.login
         conn = PG.connect(:dbname => 'test_twichblade')
         result = conn.exec("select * from tweets where tweet = $1",[tweet_message])
-        expect(user_registration.tweet(tweet_message).ntuples).to eq(result.ntuples)
+        expect(user_registration.tweet(tweet_message, response).ntuples).to eq(result.ntuples)
         conn.close
       end
     end
