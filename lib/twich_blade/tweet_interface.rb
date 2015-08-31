@@ -1,5 +1,9 @@
 module TwichBlade
   class TweetInterface < LoginInterface
+    def initialize(dbname)
+      @dbname = dbname
+    end
+
     def display(response)
       puts "  1 tweet"
       puts "  2 logout"
@@ -8,7 +12,7 @@ module TwichBlade
       if choise.to_i == 1
         print "tweet : "
         tweet_message = input.to_s
-        User.new(response.field_values('username'), response.field_values('password')).tweet(tweet_message, response)
+        User.new(response.field_values('username'), response.field_values('password'), @dbname).tweet(tweet_message, response)
         puts "Tweet succesfully"
         display(response)
       else

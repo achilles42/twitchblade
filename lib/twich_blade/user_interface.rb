@@ -1,7 +1,8 @@
 module TwichBlade
   #take input from user and call methods
   class UserInterface
-    def initialize
+    def initialize(dbname)
+      @dbname = dbname
     end
 
     def input
@@ -12,12 +13,12 @@ module TwichBlade
       display_index_page
       @input_string = input
       while @input_string != "logout"
-        foo = nil
+        interface = nil
         if @input_string.to_i == 1
-          interface = RegisterInterface.new
+          interface = RegisterInterface.new(@dbname)
           interface.display
         elsif @input_string.to_i == 2
-          interface = LoginInterface.new
+          interface = LoginInterface.new(@dbname)
           interface.display
         else
           print "Please Enter the correct choice : "

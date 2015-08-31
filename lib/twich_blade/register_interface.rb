@@ -1,5 +1,9 @@
 module TwichBlade
   class RegisterInterface < UserInterface
+    def initialize(dbname)
+      @dbname = dbname
+    end
+
     def display
       puts "-------------------------------"
       puts "   Welcome to SignUp Page"
@@ -8,7 +12,7 @@ module TwichBlade
       username = input
       print "Enter Password : "
       password = input
-      response = UserRegistration.new(username, password).register
+      response = UserRegistration.new(username, password, @dbname).register
       if response == :FAILED
         puts "------------------------------------------------"
         p "User already exist with this UserName. \n Please try again"

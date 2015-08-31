@@ -20,7 +20,7 @@ module TwichBlade
       it 'should able to login succesfully' do
         username = 'foo1'
         password = 'bar1'
-        user = User.new(username, password)
+        user = User.new(username, password, "test_twichblade")
         conn = PG.connect(:dbname => 'test_twichblade')
         response = conn.exec("select username, password from users where username = $1 and password = $2",[username, password])
         expect(user.login.ntuples).to eq(response.ntuples)
@@ -30,7 +30,7 @@ module TwichBlade
       it 'should not able to login succesfully' do
         username = 'foo4'
         password = 'bar4'
-        user = User.new(username, password)
+        user = User.new(username, password, "test_twichblade")
         expect(user.login).to eq(:FAILED)
       end
     end
@@ -40,7 +40,7 @@ module TwichBlade
         username = 'foo1'
         password = 'bar1'
         tweet_message = 'C42 engineering it is...'
-        user_registration = User.new(username, password)
+        user_registration = User.new(username, password, "test_twichblade")
         response = user_registration.login
         conn = PG.connect(:dbname => 'test_twichblade')
         result = conn.exec("select * from tweets where tweet = $1",[tweet_message])

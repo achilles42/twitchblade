@@ -1,6 +1,3 @@
-require 'pg'
-require 'pry'
-
 module TwichBlade
 end
 

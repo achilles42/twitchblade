@@ -1,10 +1,10 @@
 module TwichBlade
   #user should to login into the system
   class User
-    def initialize(username, password)
+    def initialize(username, password, dbname)
       @username = username
       @password = password
-      @conn = DBConnection.new("test_twichblade").connection
+      @conn = DBConnection.new(dbname).connection
     end
 
     def login

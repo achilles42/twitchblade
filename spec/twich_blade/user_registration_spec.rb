@@ -20,14 +20,14 @@ module TwichBlade
       it 'should able to check the availbility of username' do
         username = 'foo1'
         password = 'bar1'
-        new_user = UserRegistration.new(username, password)
+        new_user = UserRegistration.new(username, password, "test_twichblade")
         expect(new_user.validate?).to eq(false)
       end
 
       it 'should able to check the availbility of username' do
         username = 'foo4'
         password = 'bar4'
-        new_user = UserRegistration.new(username, password)
+        new_user = UserRegistration.new(username, password, "test_twichblade")
         expect(new_user.validate?).to eq(true)
       end
     end
@@ -37,7 +37,7 @@ module TwichBlade
         username = 'foo5'
         password = 'bar5'
         conn = PG.connect(:dbname => 'test_twichblade')
-        new_user = UserRegistration.new(username, password)
+        new_user = UserRegistration.new(username, password, "test_twichblade")
         response = conn.exec("select username, password from users where username = $1 and password = $2",[username, password])
         expect(new_user.register.ntuples).to eq(response.ntuples)
       end
@@ -46,7 +46,7 @@ module TwichBlade
         username = 'foo3'
         password = 'bar3'
         conn = PG.connect(:dbname => 'test_twichblade')
-        new_user = UserRegistration.new(username, password)
+        new_user = UserRegistration.new(username, password, "test_twichblade")
         expect(new_user.register).to eq(:FAILED)
       end
     end
