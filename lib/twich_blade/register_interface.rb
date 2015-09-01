@@ -35,11 +35,7 @@ module TwichBlade
     end
 
     def validate?
-      if @username != "" && @password != "" && @username.length < 15 && @password.length > 4 && @password.length < 15
-        true
-      else
-        false
-      end
+      @username != "" && @password != "" && @username.length < 15 && @password.length > 4 && @password.length < 15 ? true : false
     end
   end
 end
