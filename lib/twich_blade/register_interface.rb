@@ -35,7 +35,11 @@ module TwichBlade
     end
 
     def validate?
-      true
+      if @username != ""
+        true
+      else
+        false
+      end
     end
   end
 end
