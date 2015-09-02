@@ -11,7 +11,7 @@ module TwichBlade
           break
         else
           puts("ALERT !!! username length must be less than 15 and password must be between 6 to 14 char long")
-          display_user_input
+          display_index_page
         end
       end
       if response == :FAILED
