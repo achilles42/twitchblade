@@ -1,17 +1,17 @@
 module TwichBlade
   class RegisterInterface < UserInterface
-    def display(dbname)
+    def display
       puts "-------------------------------"
       puts "   Welcome to SignUp Page"
       puts "-------------------------------"
       display_user_input
       while 1
         if validate?
-          response = UserRegistration.new(@username, @password, dbname).register
+          response = UserRegistration.new(@username, @password, @dbname).register
           break
         else
           puts("ALERT !!! username length must be less than 15 and password must be between 6 to 14 char long")
-          display_user_input(dbname)
+          display_user_input
         end
       end
       if response == :FAILED
@@ -27,15 +27,15 @@ module TwichBlade
       end
     end
 
+    def validate?
+      @username != "" && @password != "" && @username.length < 15 && @password.length > 4 && @password.length < 15 ? true : false
+    end
+
     def display_user_input
       print "Enter UserName : "
       @username = input
       print "Enter Password : "
       @password = input
-    end
-
-    def validate?
-      @username != "" && @password != "" && @username.length < 15 && @password.length > 4 && @password.length < 15 ? true : false
     end
   end
 end

@@ -1,9 +1,5 @@
 module TwichBlade
   class LoginInterface < UserInterface
-    def initialize(dbname)
-      @dbname = dbname
-    end
-
     def display
       puts "--------------------------------"
       puts "   Welcome to SignIn page"

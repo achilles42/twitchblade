@@ -9,5 +9,10 @@ module TwichBlade
         expect(user_interface.input).to eq("twichblade")
       end
     end
+
+    it "display index page" do
+      user_interface = UserInterface.new("test_twichblade")
+      expect{ user_interface.display_index_page }.to output(/-------------------------------\n\tWelcome to TwichBlade\t\n-------------------------------\n\t1   SignUp\n\t2   SignIn\n\t3   Exit\nEnter your Choice  :/).to_stdout
+    end
   end
 end

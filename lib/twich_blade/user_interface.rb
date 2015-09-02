@@ -12,28 +12,24 @@ module TwichBlade
     def run
       display_index_page
       @input_string = input
-      while @input_string != "logout"
+      while @input_string != "3"
         interface = nil
-        if @input_string.to_i == 1
+        if @input_string == "1"
           interface = RegisterInterface.new(@dbname)
-          interface.display
-        elsif @input_string.to_i == 2
+        elsif @input_string == "2"
           interface = LoginInterface.new(@dbname)
-          interface.display
         else
           print "Please Enter the correct choice : "
+          @input_string = input
+          next
         end
+        interface.display
         @input_string = input
       end
     end
 
     def display_index_page
-      puts "-------------------------------"
-      puts "     Welcome to TwichBlade     "
-      puts "-------------------------------"
-      puts "    1   SignUp"
-      puts "    2   SignIn"
-      print " Enter your Choice  :  "
+      print "-------------------------------\n\tWelcome to TwichBlade\t\n-------------------------------\n\t1   SignUp\n\t2   SignIn\n\t3   Exit\nEnter your Choice  :"
     end
   end
 end

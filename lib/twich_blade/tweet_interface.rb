@@ -1,9 +1,5 @@
 module TwichBlade
   class TweetInterface < LoginInterface
-    def initialize(dbname)
-      @dbname = dbname
-    end
-
     def display(response)
       puts "  1 tweet"
       puts "  2 logout"
@@ -17,7 +13,7 @@ module TwichBlade
         display(response)
       else
         puts "you are succesfully logout"
-        return exit
+        display_index_page
       end
     end
   end
