@@ -30,5 +30,13 @@ module TwichBlade
       expect(timeline.show.ntuples).to eq(response.ntuples)
       conn.close
     end
+
+    it 'should able to return user id' do
+      username = "foo1"
+      timeline = Timeline.new(username, "test_twichblade")
+      conn = PG.connect(:dbname => 'test_twichblade')
+      user_id = conn.exec("select id from users where username = $1",[username]).field_values('id')[0].to_i
+      expect(timeline.get_user_id).to eq(user_id)
+    end
   end
 end

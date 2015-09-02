@@ -6,8 +6,12 @@ module TwichBlade
     end
 
     def show
-      user_id = @conn.exec("select id from users where username = $1",[@username]).field_values('id')[0].to_i
+      user_id = get_user_id
       @conn.exec("select (id, tweet, data_and_time) from tweets where user_id = $1",[user_id])
+    end
+
+    def get_user_id
+      @conn.exec("select id from users where username = $1",[@username]).field_values('id')[0].to_i
     end
   end
 end
