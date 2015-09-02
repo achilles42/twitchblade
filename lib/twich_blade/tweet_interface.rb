@@ -26,7 +26,7 @@ module TwichBlade
     def display_timeline(tweets)
       puts "tweet_id | -----------------tweet-------------------  |  date and time"
       for tweet in 0..tweets.ntuples - 1
-      puts "#{tweets.field_values('id')[tweet]} | #{tweets.field_values('tweet')[tweet]}| #{tweets.field_values('data_and_time')[tweet]}"
+      puts "#{tweets.field_values('id')[tweet]} | #{tweets.field_values('tweet')[tweet]}| #{tweets.field_values('date_and_time')[tweet]}"
       puts "\n----------------------------------------------"
       end
     end

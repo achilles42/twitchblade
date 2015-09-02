@@ -26,7 +26,7 @@ module TwichBlade
       timeline = Timeline.new(username, "test_twichblade")
       conn = PG.connect(:dbname => 'test_twichblade')
       user_id = conn.exec("select id from users where username = $1",[username])
-      response = conn.exec("select id, tweet, data_and_time from tweets where user_id = $1",[user_id.field_values('id')[0].to_i])
+      response = conn.exec("select id, tweet, date_and_time from tweets where user_id = $1",[user_id.field_values('id')[0].to_i])
       expect(timeline.show.ntuples).to eq(response.ntuples)
       conn.close
     end
