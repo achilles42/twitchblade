@@ -12,14 +12,18 @@ module TwichBlade
     def run
       display_index_page
       @input_string = input
-      while @input_string != "3"
+      while true
         interface = nil
         if @input_string == "1"
           interface = RegisterInterface.new(@dbname)
         elsif @input_string == "2"
           interface = LoginInterface.new(@dbname)
+        elsif @input_string == "3"
+          interface = TimelineInterface.new(@dbname)
+        elsif @input_string == "4"
+          break
         else
-          print "Please Enter the correct choice : "
+          error_message
           @input_string = input
           next
         end
@@ -29,7 +33,22 @@ module TwichBlade
     end
 
     def display_index_page
-      print "-------------------------------\n\tWelcome to TwichBlade\t\n-------------------------------\n\t1   SignUp\n\t2   SignIn\n\t3   Exit\nEnter your Choice  :"
+      print "-------------------------------\n\tWelcome to TwichBlade\t\n-------------------------------\n\t1   SignUp\n\t2   SignIn\n\t3   Timeline\n\t4   Exit\nEnter your Choice  :"
+    end
+
+    def display_header(page)
+      puts "--------------------------------\n   Welcome to #{page} page\n--------------------------------"
+    end
+
+    def take_user_input
+      print "Enter UserName : "
+      @username = input
+      print "Enter Password : "
+      @password = input
+    end
+
+    def error_message
+      puts "\tPlease Enter the correct choice : "
     end
   end
 end

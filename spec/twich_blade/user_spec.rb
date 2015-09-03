@@ -44,7 +44,7 @@ module TwichBlade
         response = user_registration.login
         conn = PG.connect(:dbname => 'test_twichblade')
         result = conn.exec("select * from tweets where tweet = $1",[tweet_message])
-        expect(user_registration.tweet(tweet_message, response).ntuples).to eq(result.ntuples)
+        expect(user_registration.tweet(tweet_message, response.field_values('id')[0].to_i).ntuples).to eq(result.ntuples)
         conn.close
       end
     end

@@ -7,7 +7,7 @@ module TwichBlade
         dbname = "test_twichblade"
         interface = RegisterInterface.new(dbname)
         allow(Kernel).to receive(:gets).and_return("foo", "asdasasdsasds")
-        interface.display_user_input
+        interface.take_user_input
         expect(interface.validate?).to eq(true)
       end
 
@@ -15,7 +15,7 @@ module TwichBlade
         dbname = "test_twichblade"
         interface = RegisterInterface.new(dbname)
         allow(Kernel).to receive(:gets).and_return("")
-        interface.display_user_input
+        interface.take_user_input
         expect(interface.validate?).to eq(false)
       end
 
@@ -23,7 +23,7 @@ module TwichBlade
         dbname = "test_twichblade"
         interface = RegisterInterface.new(dbname)
         allow(Kernel).to receive(:gets).and_return("foo", "")
-        interface.display_user_input
+        interface.take_user_input
         expect(interface.validate?).to eq(false)
       end
 
@@ -31,7 +31,7 @@ module TwichBlade
         dbname = "test_twichblade"
         interface = RegisterInterface.new(dbname)
         allow(Kernel).to receive(:gets).and_return("foo", "barbar1234")
-        interface.display_user_input
+        interface.take_user_input
         expect(interface.validate?).to eq(true)
       end
 
@@ -39,7 +39,7 @@ module TwichBlade
         dbname = "test_twichblade"
         interface = RegisterInterface.new(dbname)
         allow(Kernel).to receive(:gets).and_return("foo", "bar")
-        interface.display_user_input
+        interface.take_user_input
         expect(interface.validate?).to eq(false)
       end
 
@@ -47,7 +47,7 @@ module TwichBlade
         dbname = "test_twichblade"
         interface = RegisterInterface.new(dbname)
         allow(Kernel).to receive(:gets).and_return("foo", "foobar12345")
-        interface.display_user_input
+        interface.take_user_input
         expect(interface.validate?).to eq(true)
       end
     end
