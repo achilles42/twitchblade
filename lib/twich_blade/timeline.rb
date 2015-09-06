@@ -1,9 +1,9 @@
 module TwichBlade
   #show the timeline of registred users
   class Timeline
-    def initialize(username, dbname)
+    def initialize(username)
       @username = username
-      @conn = DBConnection.new(dbname).connection
+      @conn = DBConnection.new.connection
     end
 
     def show

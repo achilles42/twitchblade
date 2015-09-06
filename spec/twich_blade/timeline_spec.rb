@@ -23,7 +23,7 @@ module TwichBlade
 
     it 'it should able to show the time line of regsitered users' do
       username = "foo1"
-      timeline = Timeline.new(username, "test_twichblade")
+      timeline = Timeline.new(username)
       conn = PG.connect(:dbname => 'test_twichblade')
       user_id = conn.exec("select id from users where username = $1",[username])
       response = conn.exec("select id, tweet, date_and_time from tweets where user_id = $1",[user_id.field_values('id')[0].to_i])
@@ -33,7 +33,7 @@ module TwichBlade
 
     it 'should able to return user id' do
       username = "foo1"
-      timeline = Timeline.new(username, "test_twichblade")
+      timeline = Timeline.new(username)
       conn = PG.connect(:dbname => 'test_twichblade')
       user_id = conn.exec("select id from users where username = $1",[username]).field_values('id')[0].to_i
       expect(timeline.get_user_id).to eq(user_id)

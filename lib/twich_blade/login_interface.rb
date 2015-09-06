@@ -4,13 +4,11 @@ module TwichBlade
     def display
       display_header("SignIn")
       take_user_input
-      response = User.new(@username, @password, @dbname).login
-      if response == :FAILED
-        display_error_message
-        display_index_page
+      logged_in = User.new(@username, @password).login
+      if logged_in == :FAILED
+        unauthorized_user
       else
-        welcome_message(response.field_values('username')[0])
-        HomePageInterface.new(@dbname).display(response)
+        authorized_user
       end
     end
 
@@ -25,6 +23,17 @@ module TwichBlade
       puts "-------------------------------------------------------"
       puts "Welcome #{user_name} !!! you are successfully signed in."
       puts "-------------------------------------------------------"
+    end
+
+    def unauthorized_user
+      display_error_message
+      display_index_page
+    end
+
+    def authorized_user
+      response = User.new(@username, @password).get_user_info
+      welcome_message(response.field_values('username')[0])
+      HomePageInterface.new.display(response)
     end
   end
 end

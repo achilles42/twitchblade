@@ -1,10 +1,10 @@
 module TwichBlade
   #new user registration
   class UserRegistration
-    def initialize(username, password, dbname)
+    def initialize(username, password)
       @username = username
       @password = password
-      @conn = DBConnection.new(dbname).connection
+      @conn = DBConnection.new.connection
     end
 
     def validate?

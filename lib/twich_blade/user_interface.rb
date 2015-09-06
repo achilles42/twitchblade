@@ -1,10 +1,6 @@
 module TwichBlade
   #take input from user and call methods
   class UserInterface
-    def initialize(dbname)
-      @dbname = dbname
-    end
-
     def input
       Kernel.gets.chomp
     end
@@ -15,11 +11,11 @@ module TwichBlade
       while true
         interface = nil
         if @input_string == "1"
-          interface = RegisterInterface.new(@dbname)
+          interface = RegisterInterface.new
         elsif @input_string == "2"
-          interface = LoginInterface.new(@dbname)
+          interface = LoginInterface.new
         elsif @input_string == "3"
-          interface = TimelineInterface.new(@dbname)
+          interface = TimelineInterface.new
         elsif @input_string == "4"
           break
         else

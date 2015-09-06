@@ -4,9 +4,8 @@ module TwichBlade
     def display
       display_header("SignUp")
       take_user_input
-      puts ENV["dbname"]
       if validate?
-        response = UserRegistration.new(@username, @password, @dbname).register
+        response = UserRegistration.new(@username, @password).register
         display_response(response)
       else
         puts("ALERT !!! username length must be less than 15 and password must be between 6 to 14 char long")

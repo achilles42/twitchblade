@@ -1,19 +1,23 @@
 module TwichBlade
   #user should to login into the system
   class User
-    def initialize(username, password, dbname)
+    def initialize(username, password)
       @username = username
       @password = password
-      @conn = DBConnection.new(dbname).connection
+      @user_storage = PostgresUserStorage.new
     end
 
     def login
-      @response = @conn.exec("select id, username, password from users where username = $1 and password = $2",[@username, @password])
-      if @response.ntuples != 1
-        :FAILED
+      response = @user_storage.exists?(@username, @password)
+      if response == true
+        :SUCCESS
       else
-        @response
+        :FAILED
       end
+    end
+
+    def get_user_info
+      @user_storage.profile_info(@username, @password)
     end
 
     def tweet(tweet_message, user_id)

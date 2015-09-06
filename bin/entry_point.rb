@@ -9,4 +9,4 @@ Figaro.load
 
 require "twich_blade"
 
-TwichBlade::UserInterface.new(ENV["dbname"]).run
+TwichBlade::UserInterface.new.run
