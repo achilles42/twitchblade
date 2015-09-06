@@ -4,6 +4,7 @@ module TwichBlade
     def display
       display_header("SignUp")
       take_user_input
+      puts ENV["dbname"]
       if validate?
         response = UserRegistration.new(@username, @password, @dbname).register
         display_response(response)

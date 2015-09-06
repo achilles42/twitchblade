@@ -49,7 +49,7 @@ module TwichBlade
     end
 
     context 'retweet' do
-      it 'should able to retweet' do
+      pending 'should able to retweet' do
         username = 'foo1'
         password = 'bar1'
         user = User.new(username, password, "test_twichblade")
