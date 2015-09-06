@@ -40,12 +40,22 @@ module TwichBlade
         username = 'foo1'
         password = 'bar1'
         tweet_message = 'C42 engineering it is...'
-        user_registration = User.new(username, password, "test_twichblade")
-        response = user_registration.login
+        user = User.new(username, password, "test_twichblade")
+        response = user.login
         conn = PG.connect(:dbname => 'test_twichblade')
-        result = conn.exec("select * from tweets where tweet = $1",[tweet_message])
-        expect(user_registration.tweet(tweet_message, response.field_values('id')[0].to_i).ntuples).to eq(result.ntuples)
-        conn.close
+        response = user.tweet(tweet_message, response.field_values('id')[0].to_i)
+        expect(response.cmd_tuples).to eq(1)
+      end
+    end
+
+    context 'retweet' do
+      it 'should able to retweet' do
+        username = 'foo1'
+        password = 'bar1'
+        user = User.new(username, password, "test_twichblade")
+        response = user.login
+        conn = PG.connect(:dbname => 'test_twichblade')
+        expect(user.re_tweet(response.field_values('id')[0].to_i, tweet_id)).to eq(1)
       end
     end
   end

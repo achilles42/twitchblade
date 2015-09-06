@@ -28,8 +28,9 @@ module TwichBlade
 
     def display_tweets(tweets)
       for tweet in 0..tweets.ntuples - 1
-        puts "Tweet Id : #{tweets.field_values('id')[tweet]} \t\tDate & Time  : #{tweets.field_values('date_and_time')[tweet]}"
+        puts "Tweet Id : #{tweets.field_values('id')[tweet]} \t\tDate & Time  : #{tweets.field_values('date_and_time')[tweet]} "
         puts "Tweet :  #{tweets.field_values('tweet')[tweet]}"
+        puts "Retweet Post : #{tweets.field_values('retweet')[tweet]}} "
         puts "\n--------------------------------------------------------------------"
       end
     end

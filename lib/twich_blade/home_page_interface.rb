@@ -6,7 +6,7 @@ module TwichBlade
       while true
         display_home_page
         choice = input
-        if choice == "4"
+        if choice == "5"
           break
         else
           process(choice)
@@ -16,7 +16,7 @@ module TwichBlade
     end
 
     def display_home_page
-      print "  1 My Timeline\n  2 tweet\n  3 Other's  Timeline\n  4 logout\nEnter your choice : "
+      print "  1 My Timeline\n  2 tweet\n  3 Other's  Timeline\n  4 Retweet\n  5 logout\nEnter your choice : "
     end
 
     private
@@ -48,8 +48,22 @@ module TwichBlade
         tweet
       elsif choice == "3"
         others_timeline
+      elsif choice == "4"
+        re_tweet
       else
         error_message
+      end
+    end
+
+    def re_tweet
+      others_timeline
+      print "\n\tEnter Tweet Id for Retweet : "
+      tweet_id = input.to_i
+      response = User.new(@user_info.field_values('username')[0].to_s, @user_info.field_values('password')[0].to_s, @dbname).re_tweet(@user_info.field_values('id')[0].to_i, tweet_id)
+      if response == :FAIL
+        puts "tweet Id doesn't exist!!!  Please try again"
+      else
+        puts "Retweet Successfully"
       end
     end
   end

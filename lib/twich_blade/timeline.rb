@@ -8,7 +8,7 @@ module TwichBlade
 
     def show
       user_id = get_user_id
-      user_id != 0 ? @conn.exec("select id, tweet, date_and_time from tweets where user_id = $1",[user_id]) : false
+      user_id != 0 ? @conn.exec("select id, tweet, date_and_time, retweet from tweets where user_id = $1",[user_id]) : false
     end
 
     def get_user_id
