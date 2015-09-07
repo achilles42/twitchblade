@@ -20,7 +20,8 @@ module TwichBlade
       @user_storage.profile_info(@username, @password)
     end
 
-    def tweet(tweet_message, user_id)
+    def tweet(tweet_message)
+      user_id = @user_storage.get_user_id_by_user_name(@username)
       @conn.exec("insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP, DEFAULT)",[user_id, tweet_message])
     end
 

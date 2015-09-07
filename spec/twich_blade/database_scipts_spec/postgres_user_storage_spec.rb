@@ -39,5 +39,16 @@ module TwichBlade
       user_storage = PostgresUserStorage.new
       expect(user_storage.exists?(username, password)).to eq(false)
     end
+
+    it 'should able to return user id by username' do
+      username = "foo1"
+      password = "bar1"
+      user = User.new(username, password).login
+      user_storage = PostgresUserStorage.new
+      user_id = user_storage.get_user_id_by_user_name(username)
+      conn = PG.connect(:dbname => 'test_twichblade')
+      response = conn.exec("select id from users where username = $1",[username]).field_values('id')[0].to_i
+      expect(user_id).to eq(response)
+    end
   end
 end
