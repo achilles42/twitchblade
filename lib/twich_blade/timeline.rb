@@ -3,7 +3,7 @@ module TwichBlade
   class Timeline
     def initialize(username)
       @username = username
-      @conn = DBConnection.new.connection
+      @conn = PostgresDatabase::DBConnection.new.connect
     end
 
     def show

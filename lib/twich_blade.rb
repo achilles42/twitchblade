@@ -1,7 +1,10 @@
 module TwichBlade
 end
 
-require 'twich_blade/db_connection'
+module PostgresDatabase
+end
+
+require 'twich_blade/database_scripts/db_connection'
 require 'twich_blade/user_registration'
 require 'twich_blade/user'
 require 'twich_blade/user_interface'
@@ -10,4 +13,4 @@ require 'twich_blade/register_interface'
 require 'twich_blade/home_page_interface'
 require 'twich_blade/timeline.rb'
 require 'twich_blade/timeline_interface.rb'
-require 'twich_blade/database_scripts/postgres_user_storage'
+require 'twich_blade/database_scripts/user'

@@ -1,4 +1,4 @@
-module TwichBlade
+module PostgresDatabase
   #database connection
   class DBConnection
     def initialize
@@ -6,12 +6,11 @@ module TwichBlade
     end
 
     def connect
-      PG.connect(
-        :dbname => @dbname)
+      @connection = PG.connect( :dbname => @dbname )
     end
 
     def close
-      PG.close
+      @connection.close
     end
   end
 end

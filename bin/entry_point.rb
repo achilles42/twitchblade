@@ -4,7 +4,7 @@ require 'pry'
 require 'figaro'
 require 'pg'
 
-Figaro.application = Figaro::Application.new(environment: "DEVELOPMENT", path: "config/application.yml")
+Figaro.application = Figaro::Application.new(environment: "STAGING", path: "config/application.yml")
 Figaro.load
 
 require "twich_blade"

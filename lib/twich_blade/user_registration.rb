@@ -4,7 +4,7 @@ module TwichBlade
     def initialize(username, password)
       @username = username
       @password = password
-      @conn = DBConnection.new.connection
+      @conn = PostgresDatabase::DBConnection.new.connect
     end
 
     def validate?
