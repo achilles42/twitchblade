@@ -52,5 +52,22 @@ module TwichBlade
         expect(user.re_tweet(response.field_values('id')[0].to_i, tweet_id)).to eq(1)
       end
     end
+
+    context 'registration' do
+      it 'should able to register new user' do
+        username = 'foo5'
+        password = 'bar5'
+        new_user = User.new(username, password)
+        response = @conn.exec("select username, password from users where username = $1 and password = $2",[username, password])
+        expect(new_user.register.ntuples).to eq(response.ntuples)
+      end
+
+      it 'should not able to register new user with existing username' do
+        username = 'foo3'
+        password = 'bar3'
+        new_user = User.new(username, password)
+        expect(new_user.register).to eq(:FAILED)
+      end
+    end
   end
 end

@@ -1,6 +1,6 @@
 module PostgresDatabase
   #user CRUD
-  class User
+  class UserStorage
     def initialize
       @conn = DBConnection.new
     end
@@ -31,6 +31,20 @@ module PostgresDatabase
       id_and_tweet = conn.exec("select user_id, tweet from tweets where id = $1",[tweet_id])
       username = conn.exec("select id,username from users where id = $1",[id_and_tweet.field_values('user_id')[0].to_i]).field_values('username')[0].to_s
       result = conn.exec("insert into tweets values (DEFAULT, $1, $2, LOCALTIMESTAMP, $3)",[user_id, id_and_tweet.field_values('tweet')[0].to_s, username])
+      conn.close
+      result
+    end
+
+    def username_validate?(username)
+      conn = @conn.connect
+      result = conn.exec("select username from users where username = $1 ",[username])
+      conn.close
+      result
+    end
+
+    def register(username, password)
+      conn = @conn.connect
+      result = conn.exec("insert into users values(DEFAULT, $1, $2)",[username, password]);
       conn.close
       result
     end

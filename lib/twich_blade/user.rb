@@ -4,7 +4,7 @@ module TwichBlade
     def initialize(username, password)
       @username = username
       @password = password
-      @user_storage = PostgresDatabase::User.new
+      @user_storage = PostgresDatabase::UserStorage.new
     end
 
     def login
@@ -26,6 +26,20 @@ module TwichBlade
 
     def re_tweet(tweet_id)
       @user_storage.re_tweet(tweet_id, @username)
+    end
+
+    def register
+      if validate?
+        @user_storage.register(@username, @password)
+      else
+        :FAILED
+      end
+    end
+
+    private
+    def validate?
+      response = @user_storage.username_validate?(@username)
+      response.ntuples != 0 ? false : true
     end
   end
 end

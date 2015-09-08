@@ -3,16 +3,16 @@ module TwichBlade
   class Timeline
     def initialize(username)
       @username = username
-      @conn = PostgresDatabase::DBConnection.new.connect
+      @timeline_storage = PostgresDatabase::TimelineStorage.new
     end
 
     def show
       user_id = get_user_id
-      user_id != 0 ? @conn.exec("select id, tweet, date_and_time, retweet from tweets where user_id = $1",[user_id]) : false
+      user_id != 0 ? @timeline_storage.get_all_tweets(@username) : false
     end
 
     def get_user_id
-      @conn.exec("select id from users where username = $1",[@username]).field_values('id')[0].to_i
+      @timeline_storage.user_id(@username)
     end
   end
 end

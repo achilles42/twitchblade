@@ -3,7 +3,7 @@ require 'spec_helper'
 module PostgresDatabase
   describe 'user storage' do
     before(:each) do
-      @conn = PG.connect(:dbname => 'test_twichblade')
+      @conn = @conn = DBConnection.new.connect
       @conn.exec("insert into users(id, username, password) values(DEFAULT, 'foo1', 'bar1')")
       @conn.exec("insert into users(id, username, password) values(DEFAULT, 'foo2', 'bar2')")
       @conn.exec("insert into users(id, username, password) values(DEFAULT, 'foo3', 'bar3')")
@@ -19,21 +19,21 @@ module PostgresDatabase
       username = "foo1"
       password = "bar1"
       response = @conn.exec("select id, username, password from users where username = $1 and password = $2",[username, password])
-      user_storage = User.new
+      user_storage = UserStorage.new
       expect(user_storage.profile_info(username, password).ntuples).to eq(response.ntuples)
     end
 
     it 'should able to to check the user existance of valid user' do
       username = "foo1"
       password = "bar1"
-      user_storage = User.new
+      user_storage = UserStorage.new
       expect(user_storage.exists?(username, password)).to eq(true)
     end
 
     it 'should able to to check the user existance of invalid user' do
       username = "foo4"
       password = "bar1"
-      user_storage = User.new
+      user_storage = UserStorage.new
       expect(user_storage.exists?(username, password)).to eq(false)
     end
 
@@ -41,7 +41,7 @@ module PostgresDatabase
       username = "foo1"
       password = "bar1"
       user = TwichBlade::User.new(username, password).login
-      user_storage = User.new
+      user_storage = UserStorage.new
       message = "this spec tweet!!!"
       tweet = user_storage.insert_tweet(message, username)
       user_id = @conn.exec("select id from users where username = $1",[username]).field_values('id')[0].to_i
@@ -53,7 +53,7 @@ module PostgresDatabase
       username = "foo1"
       password = "bar1"
       user = TwichBlade::User.new(username, password).login
-      user_storage = User.new
+      user_storage = UserStorage.new
       message = "this is spec tweet"
       user_id = @conn.exec("select id from users where username = $1",[username]).field_values('id')[0].to_i
       @conn.exec("insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP, DEFAULT)",[user_id, message]);
