@@ -30,6 +30,9 @@ module PostgresDatabase
       user_id = get_user_id_by_user_name(username)
       id_tweet_retweet = conn.exec("select user_id, tweet, retweet from tweets where id = $1",[tweet_id])
       result = conn.exec("insert into tweets values (DEFAULT, $1, $2, LOCALTIMESTAMP, $3)",[user_id, id_tweet_retweet.field_values('tweet')[0].to_s, id_tweet_retweet.field_values('retweet')[0].to_s])
+      if id_tweet_retweet.ntuples == 0
+        result = :FAILED
+      end
       conn.close
       result
     end

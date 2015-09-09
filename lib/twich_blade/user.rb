@@ -26,7 +26,7 @@ module TwichBlade
 
     def re_tweet(tweet_id)
       response = @user_storage.re_tweet(tweet_id, @username)
-      if response.cmd_tuples == 0
+      if response == :FAILED
         :FAILED
       else
         response

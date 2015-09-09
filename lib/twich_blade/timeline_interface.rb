@@ -1,6 +1,6 @@
 module TwichBlade
   #we can view registred users timeline
-  class TimelineInterface < TwichBladeCLI
+  class TimelineInterface < UserInterface
     def display
       display_header("View Timeline")
       username_validation_and_timeline

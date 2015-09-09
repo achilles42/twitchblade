@@ -1,6 +1,6 @@
 module TwichBlade
   #user can see home page
-  class HomePageInterface < TwichBladeCLI
+  class HomePageInterface < UserInterface
     def display(user_info)
       @user_info = user_info
       while true
@@ -75,7 +75,7 @@ module TwichBlade
 
     def re_tweet
       if others_timeline == :FAILED
-        puts "User Does Exists!!!"
+        puts "User Doesn't Exists!!!"
         return
       else
         print "\n\tEnter Tweet Id for Retweet : "

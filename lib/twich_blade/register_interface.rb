@@ -1,10 +1,11 @@
 module TwichBlade
   #Guest/non-registred user can register
-  class RegisterInterface < TwichBladeCLI
+  class RegisterInterface < UserInterface
     def display
       display_header("SignUp")
       take_user_input
       if validate?
+        @password = hash(@password)
         response = User.new(@username, @password).register
         display_response(response)
       else
