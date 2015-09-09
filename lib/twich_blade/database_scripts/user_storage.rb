@@ -20,7 +20,7 @@ module PostgresDatabase
     def insert_tweet(message, username)
       conn = @conn.connect
       user_id = get_user_id_by_user_name(username)
-      result = conn.exec("insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP, DEFAULT)",[user_id, message])
+      result = conn.exec("insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP, $3)",[user_id, message, username])
       conn.close
       result
     end
@@ -28,14 +28,13 @@ module PostgresDatabase
     def re_tweet(tweet_id, username)
       conn = @conn.connect
       user_id = get_user_id_by_user_name(username)
-      id_and_tweet = conn.exec("select user_id, tweet from tweets where id = $1",[tweet_id])
-      username = conn.exec("select id,username from users where id = $1",[id_and_tweet.field_values('user_id')[0].to_i]).field_values('username')[0].to_s
-      result = conn.exec("insert into tweets values (DEFAULT, $1, $2, LOCALTIMESTAMP, $3)",[user_id, id_and_tweet.field_values('tweet')[0].to_s, username])
+      id_tweet_retweet = conn.exec("select user_id, tweet, retweet from tweets where id = $1",[tweet_id])
+      result = conn.exec("insert into tweets values (DEFAULT, $1, $2, LOCALTIMESTAMP, $3)",[user_id, id_tweet_retweet.field_values('tweet')[0].to_s, id_tweet_retweet.field_values('retweet')[0].to_s])
       conn.close
       result
     end
 
-    def username_validate?(username)
+    def username_validate(username)
       conn = @conn.connect
       result = conn.exec("select username from users where username = $1 ",[username])
       conn.close

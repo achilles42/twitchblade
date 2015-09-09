@@ -7,7 +7,7 @@ module TwichBlade
       dbname = "test_twichblade"
       obj = double()
       obj.stub(:show) { false }
-      allow(Kernel).to receive(:gets).and_return("twichblade")
+      allow(Kernel).to receive(:gets).and_return(username)
       timeline_interface = TimelineInterface.new
       expect{ timeline_interface.username_validation_and_timeline }.to output(/\tSorry username doesn't exist/).to_stdout
     end

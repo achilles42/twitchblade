@@ -25,7 +25,12 @@ module TwichBlade
     end
 
     def re_tweet(tweet_id)
-      @user_storage.re_tweet(tweet_id, @username)
+      response = @user_storage.re_tweet(tweet_id, @username)
+      if response.cmd_tuples == 0
+        :FAILED
+      else
+        response
+      end
     end
 
     def register
@@ -36,9 +41,8 @@ module TwichBlade
       end
     end
 
-    private
     def validate?
-      response = @user_storage.username_validate?(@username)
+      response = @user_storage.username_validate(@username)
       response.ntuples != 0 ? false : true
     end
   end

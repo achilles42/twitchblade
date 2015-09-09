@@ -1,6 +1,6 @@
 module TwichBlade
   #Guest/non-registred user can register
-  class RegisterInterface < UserInterface
+  class RegisterInterface < TwichBladeCLI
     def display
       display_header("SignUp")
       take_user_input
@@ -21,7 +21,7 @@ module TwichBlade
     def display_response(response)
       if response == :FAILED
         puts "---------------------------------------------------------"
-        p "User already exist with this UserName!!! \t Please try again"
+        p "User already exist with this UserName!!!  Please try again"
         puts "---------------------------------------------------------"
       else
         puts "---------------------------------------------------------"

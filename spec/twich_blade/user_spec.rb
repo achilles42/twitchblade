@@ -53,6 +53,22 @@ module TwichBlade
       end
     end
 
+    context 'validate' do
+      it 'should validate the username existance' do
+        username = 'foo1'
+        password = 'bar1'
+        user = User.new(username, password)
+        expect(user.validate?).to eq(false)
+      end
+
+      it 'should validate the username existnace' do
+        username = 'foo5'
+        password = 'bar1'
+        user = User.new(username, password)
+        expect(user.validate?).to eq(true)
+      end
+    end
+
     context 'registration' do
       it 'should able to register new user' do
         username = 'foo5'

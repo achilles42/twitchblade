@@ -1,6 +1,6 @@
 module TwichBlade
   #user can login
-  class LoginInterface < UserInterface
+  class LoginInterface < TwichBladeCLI
     def display
       display_header("SignIn")
       take_user_input

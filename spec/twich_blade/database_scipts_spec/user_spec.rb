@@ -11,6 +11,7 @@ module PostgresDatabase
 
     after(:each) do
       @conn.exec("delete from tweets")
+      @conn.exec("delete from followers")
       @conn.exec("delete from users")
       @conn.close
     end

@@ -1,12 +1,12 @@
 module TwichBlade
   #user can see home page
-  class HomePageInterface < LoginInterface
+  class HomePageInterface < TwichBladeCLI
     def display(user_info)
       @user_info = user_info
       while true
         display_home_page
         choice = input
-        if choice == "5"
+        if choice == "6"
           break
         else
           process(choice)
@@ -16,10 +16,42 @@ module TwichBlade
     end
 
     def display_home_page
-      print "  1 My Timeline\n  2 tweet\n  3 Other's  Timeline\n  4 Retweet\n  5 logout\nEnter your choice : "
+      print "  1 My Timeline\n  2 tweet\n  3 Other's  Timeline\n  4 Retweet\n  5 Follow\n  6 logout\nEnter your choice : "
     end
 
     private
+    def process(choice)
+      if choice == "1"
+        my_timeline
+      elsif choice == "2"
+        tweet
+      elsif choice == "3"
+        others_timeline
+      elsif choice == "4"
+        re_tweet
+      elsif choice == "5"
+        follow
+      else
+        error_message
+      end
+    end
+
+    def follow
+      print "Enter Username : "
+      username = input
+      response = PostgresDatabase::UserStorage.new.username_validate(username)
+      if response.ntuples != 1
+        puts "\tUser name doesn't Exists"
+      else
+        response1 = Timeline.new(@user_info.field_values('username')[0].to_s).follow(username)
+        if response1 == nil
+          puts "\t You are already following #{username}"
+        else
+          puts "\t You are following #{username}"
+        end
+      end
+    end
+
     def my_timeline
       puts "------------- * My Timeline * ----------------"
       tweets = Timeline.new(@user_info.field_values('username')[0].to_s).show
@@ -41,29 +73,19 @@ module TwichBlade
       end
     end
 
-    def process(choice)
-      if choice == "1"
-        my_timeline
-      elsif choice == "2"
-        tweet
-      elsif choice == "3"
-        others_timeline
-      elsif choice == "4"
-        re_tweet
-      else
-        error_message
-      end
-    end
-
     def re_tweet
-      others_timeline
-      print "\n\tEnter Tweet Id for Retweet : "
-      tweet_id = input.to_i
-      response = User.new(@user_info.field_values('username')[0].to_s, @user_info.field_values('password')[0].to_s).re_tweet(tweet_id)
-      if response == :FAIL
-        puts "tweet Id doesn't exist!!!  Please try again"
+      if others_timeline == :FAILED
+        puts "User Does Exists!!!"
+        return
       else
-        puts "Retweet Successfully"
+        print "\n\tEnter Tweet Id for Retweet : "
+        tweet_id = input.to_i
+        response = User.new(@user_info.field_values('username')[0].to_s, @user_info.field_values('password')[0].to_s).re_tweet(tweet_id)
+        if response == :FAILED
+          puts "Tweet Id doesn't exist!!!  Please try again"
+        else
+          puts "Retweet Successfully"
+        end
       end
     end
   end

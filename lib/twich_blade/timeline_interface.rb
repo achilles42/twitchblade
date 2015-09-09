@@ -1,6 +1,6 @@
 module TwichBlade
   #we can view registred users timeline
-  class TimelineInterface < UserInterface
+  class TimelineInterface < TwichBladeCLI
     def display
       display_header("View Timeline")
       username_validation_and_timeline
@@ -13,6 +13,7 @@ module TwichBlade
       timeline = Timeline.new(username).show
       if timeline == false
         puts "\tSorry username doesn't exist"
+        :FAILED
       else
         display_timeline(timeline)
       end
@@ -29,7 +30,7 @@ module TwichBlade
     def display_tweets(tweets)
       for tweet in 0..tweets.ntuples - 1
         puts "Tweet Id : #{tweets.field_values('id')[tweet]} \t\tDate & Time  : #{tweets.field_values('date_and_time')[tweet]} "
-        puts "Tweet :  #{tweets.field_values('tweet')[tweet]}"
+        puts "Tweet :  #{tweets.field_values('tweet')[tweet]} "
         puts "Posted By: #{tweets.field_values('retweet')[tweet]}"
         puts "\n--------------------------------------------------------------------"
       end

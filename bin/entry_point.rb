@@ -9,4 +9,4 @@ Figaro.load
 
 require "twich_blade"
 
-TwichBlade::UserInterface.new.run
+TwichBlade::TwichBladeCLI.new.run

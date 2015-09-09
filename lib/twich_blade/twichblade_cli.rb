@@ -1,6 +1,6 @@
 module TwichBlade
   #take input from user and call methods
-  class UserInterface
+  class TwichBladeCLI
     def input
       Kernel.gets.chomp
     end
