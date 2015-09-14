@@ -19,7 +19,6 @@ module TwichBlade
       print "  1 My Timeline\n  2 tweet\n  3 Other's  Timeline\n  4 Retweet\n  5 Follow\n  6 My Wall\n  7 logout\nEnter your choice : "
     end
 
-    private
     def process(choice)
       if choice == "1"
         my_timeline
@@ -38,6 +37,7 @@ module TwichBlade
       end
     end
 
+    private
     def follow
       print "Enter Username : "
       username = input
@@ -81,7 +81,7 @@ module TwichBlade
         return
       else
         print "\n\tEnter Tweet Id for Retweet : "
-        tweet_id = input.to_i
+        tweet_id = (input.to_i / 9999)
         response = User.new(@user_info.field_values('username')[0].to_s, @user_info.field_values('password')[0].to_s).re_tweet(tweet_id)
         if response == :FAILED
           puts "Tweet Id doesn't exist!!!  Please try again"

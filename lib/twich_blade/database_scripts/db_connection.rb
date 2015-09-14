@@ -10,7 +10,7 @@ module PostgresDatabase
     end
 
     def close
-      @connection.close
+      @connection = PG.close
     end
   end
 end

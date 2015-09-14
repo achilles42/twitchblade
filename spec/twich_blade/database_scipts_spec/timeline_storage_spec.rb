@@ -73,7 +73,6 @@ module PostgresDatabase
       user_id_foo2 = @conn.exec("select follower_id from followers where user_id = $1", [user_id]).field_values('follower_id')[1].to_i
       result << @conn.exec("select username from users where id = $1", [user_id_foo2]).field_values('username')[0].to_s
       following_ids = timeline_storage.get_following_name
-      binding.pry
       expect(following_ids).to eq(result)
     end
   end

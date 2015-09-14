@@ -16,27 +16,31 @@ module TwichBlade
     def process(username)
        timeline = Timeline.new(username).show
       if timeline == false
-        puts "\tSorry username doesn't exist"
-        :FAILED
+        error_message
       else
         display_timeline(timeline)
       end
     end
+
     def display_timeline(tweets)
       if tweets.ntuples != 0
         display_tweets(tweets)
-      else
-        puts "\n\t\tSorry!!! No tweets found"
       end
     end
 
     def display_tweets(tweets)
       for tweet in 0..tweets.ntuples - 1
-        puts "Tweet Id : #{tweets.field_values('id')[tweet]} \t\tDate & Time  : #{tweets.field_values('date_and_time')[tweet]} "
+        puts "Tweet Id : #{tweets.field_values('id')[tweet].to_i * 9999} \t\tDate & Time  : #{tweets.field_values('date_and_time')[tweet]} "
         puts "Tweet :  #{tweets.field_values('tweet')[tweet]} "
         puts "Posted By: #{tweets.field_values('retweet')[tweet]}"
         puts "\n--------------------------------------------------------------------"
       end
+    end
+
+    private
+    def error_message
+      puts "\tSorry username doesn't exist"
+      :FAILED
     end
   end
 end
