@@ -54,10 +54,10 @@ module PostgresDatabase
       username = 'foo1'
       timeline_storage = TimelineStorage.new(username)
       user_id = timeline_storage.get_user_id
-      follower_username = 'foo2'
-      user_id_follower = @conn.exec("select id from users where username = $1", [follower_username]).field_values('id')[0].to_i
-      @conn.exec("insert into followers values($1, $2)", [user_id_follower, user_id])
-      result = timeline_storage.insert_follower(follower_username)
+      following_username = 'foo2'
+      user_id_following = @conn.exec("select id from users where username = $1", [following_username]).field_values('id')[0].to_i
+      @conn.exec("insert into followers values($1, $2)", [user_id, user_id_following])
+      result = timeline_storage.insert_follower(following_username)
       expect(result).to eq(nil)
     end
 
@@ -65,14 +65,15 @@ module PostgresDatabase
       username = 'foo1'
       timeline_storage = TimelineStorage.new(username)
       user_id = timeline_storage.get_user_id
-      @conn.exec("insert into followers values($1, $2)", [@user_id_foo2, user_id])
-      @conn.exec("insert into followers values($1, $2)", [@user_id_foo3, user_id])
+      @conn.exec("insert into followers values($1, $2)", [user_id, @user_id_foo2])
+      @conn.exec("insert into followers values($1, $2)", [user_id, @user_id_foo3])
       result = []
-      user_id_foo1 = @conn.exec("select user_id from followers where follower_id = $1", [user_id]).field_values('user_id')[0].to_i
+      user_id_foo1 = @conn.exec("select follower_id from followers where user_id = $1", [user_id]).field_values('follower_id')[0].to_i
       result << @conn.exec("select username from users where id = $1", [user_id_foo1]).field_values('username')[0].to_s
-      user_id_foo2 = @conn.exec("select user_id from followers where follower_id = $1", [user_id]).field_values('user_id')[1].to_i
+      user_id_foo2 = @conn.exec("select follower_id from followers where user_id = $1", [user_id]).field_values('follower_id')[1].to_i
       result << @conn.exec("select username from users where id = $1", [user_id_foo2]).field_values('username')[0].to_s
-      following_ids = timeline_storage.get_following_ids
+      following_ids = timeline_storage.get_following_name
+      binding.pry
       expect(following_ids).to eq(result)
     end
   end

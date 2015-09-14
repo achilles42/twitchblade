@@ -92,7 +92,7 @@ module TwichBlade
     end
 
     def my_wall
-      following_list = Timeline.new(@user_info.field_values('username')[0].to_s).my_wall
+      following_list = Timeline.new(@user_info.field_values('username')[0].to_s).followings
       puts "\t\t\t MY WALL "
       timeline_interface = TimelineInterface.new
       following_list.each do |following_username|

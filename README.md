@@ -1,5 +1,8 @@
 ## TwichBlade
 
+TwichBlade is an commandline social networking service that enables users to send and read short 140-character messages called "tweets".
+
+
 ##Setup
 
 1. clone the project from github : https://github.com/spraveen1112/TwichBlade

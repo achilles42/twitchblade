@@ -19,8 +19,8 @@ module TwichBlade
       @timeline_storage.insert_follower(follower_username)
     end
 
-    def my_wall
-      following_list = @timeline_storage.get_following_ids
+    def followings
+      @timeline_storage.get_following_name
     end
   end
 end

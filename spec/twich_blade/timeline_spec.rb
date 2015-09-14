@@ -45,5 +45,15 @@ module TwichBlade
       user_id_follower = @conn.exec("select id from users where username = $1", [follower_username]).field_values('id')[0].to_i
       expect(timeline.follow(follower_username).cmd_tuples).to eq(1)
     end
+
+    it 'should able to display my wall with all my following username' do
+      username = 'foo1'
+      follower_username = 'foo2'
+      timeline = Timeline.new(username)
+      user_id = @conn.exec("select id from users where username = $1", [username]).field_values('id')[0].to_i
+      followers_id = @conn.exec("select id from users where username = $1", [follower_username]).field_values('id')[0].to_i
+      @conn.exec("insert into followers values($1, $2)", [user_id, followers_id])
+      expect(timeline.followings).to eq(['foo2'])
+    end
   end
 end
