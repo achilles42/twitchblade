@@ -5,7 +5,6 @@ module TwichBlade
       display_header("SignUp")
       take_user_input
       if validate?
-        @password = hash(@password)
         response = User.new(@username, @password).register
         display_response(response)
       else

@@ -6,7 +6,7 @@ module PostgresDatabase
     end
 
     def connect
-      @connection = PG.connect( :dbname => @dbname )
+      @connection = PG.connect( :dbname => @dbname, :host => "10.1.1.33", :port => 5432 )
     end
 
     def close
