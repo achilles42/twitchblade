@@ -43,8 +43,7 @@ module TwichBlade
       timeline = Timeline.new(username)
       user_id = @conn.exec("select id from users where username = $1", [username]).field_values('id')[0].to_i
       user_id_follower = @conn.exec("select id from users where username = $1", [follower_username]).field_values('id')[0].to_i
-      result = @conn.exec("insert into followers values(DEFAULT, $1, $2)", [user_id, user_id_follower])
-      expect(timeline.follow(follower_username).cmd_tuples).to eq(result.cmd_tuples)
+      expect(timeline.follow(follower_username).cmd_tuples).to eq(1)
     end
   end
 end

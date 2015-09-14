@@ -6,7 +6,7 @@ module TwichBlade
       while true
         display_home_page
         choice = input
-        if choice == "6"
+        if choice == "7"
           break
         else
           process(choice)
@@ -16,7 +16,7 @@ module TwichBlade
     end
 
     def display_home_page
-      print "  1 My Timeline\n  2 tweet\n  3 Other's  Timeline\n  4 Retweet\n  5 Follow\n  6 logout\nEnter your choice : "
+      print "  1 My Timeline\n  2 tweet\n  3 Other's  Timeline\n  4 Retweet\n  5 Follow\n  6 My Wall\n  7 logout\nEnter your choice : "
     end
 
     private
@@ -31,6 +31,8 @@ module TwichBlade
         re_tweet
       elsif choice == "5"
         follow
+      elsif choice == "6"
+        my_wall
       else
         error_message
       end
@@ -86,6 +88,15 @@ module TwichBlade
         else
           puts "Retweet Successfully"
         end
+      end
+    end
+
+    def my_wall
+      following_list = Timeline.new(@user_info.field_values('username')[0].to_s).my_wall
+      puts "\t\t\t MY WALL "
+      timeline_interface = TimelineInterface.new
+      following_list.each do |following_username|
+        timeline_interface.process(following_username)
       end
     end
   end

@@ -27,5 +27,9 @@ module TwichBlade
         @input_string = input
       end
     end
+
+    def error_message
+      print "\tPlease Enter the correct choice : "
+    end
   end
 end
