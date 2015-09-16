@@ -7,7 +7,9 @@ module TwichBlade
 
     def run
       UserInterface.new.display_index_page
+      #puts "taking the input"
       @input_string = input
+      #puts "took the input"
       while true
         interface = nil
         if @input_string == "1"

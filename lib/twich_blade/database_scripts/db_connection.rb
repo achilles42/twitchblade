@@ -7,7 +7,11 @@ module PostgresDatabase
     end
 
     def connect
-      @connection = PG.connect( :dbname => @dbname, :host => @host, :port => 5432 )
+      begin
+        @connection = PG.connect( :dbname => @dbname, :host => @host, :port => 5432 )
+      rescue PG::ConnectionBad => e
+        :ERROR
+      end
     end
 
     def close

@@ -81,7 +81,7 @@ module TwichBlade
         return
       else
         print "\n\tEnter Tweet Id for Retweet : "
-        tweet_id = (input.to_i / 9999)
+        tweet_id = (input.to_i / security_factor)
         response = User.new(@user_info.field_values('username')[0].to_s, @user_info.field_values('password')[0].to_s).re_tweet(tweet_id)
         if response == :FAILED
           puts "Tweet Id doesn't exist!!!  Please try again"

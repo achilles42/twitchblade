@@ -4,11 +4,10 @@
 Vagrant.configure("2") do |config|
   config.vm.define :cli do |cli|
     cli.vm.box = "ubuntu/trusty64"
-    cli.vm.network :private_network, ip: "10.1.1.22"
+    cli.vm.network :private_network, ip: "192.168.33.11"
     cli.vm.hostname = "cli"
     cli.vm.synced_folder "./", "/home/vagrant/app"
     cli.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
-
     cli.vm.provision "shell", privileged: false, inline: <<-SHELL
       echo "Updating system !!"
       sudo apt-get -y update
@@ -17,8 +16,6 @@ Vagrant.configure("2") do |config|
       sudo apt-get install -y libssl-dev libreadline-dev libyaml-dev
       sudo apt-get install -y libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev
       sudo apt-get install -y libcurl4-openssl-dev python-software-properties libffi-dev
-      echo "Installing Postgresql"
-      sudo apt-get install -y postgresql postgresql-client postgresql-contrib libpq-dev
       git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
       sudo locale-gen en_US en_US.UTF-8
       echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
@@ -38,7 +35,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define :db do |db|
     db.vm.box = "ubuntu/trusty64"
-    db.vm.network :private_network, ip: "10.1.1.33"
+    db.vm.network :private_network, ip: "192.168.33.10"
     db.vm.hostname = "db"
     db.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
     db.vm.provision "shell", privileged: false, inline: <<-SHELL

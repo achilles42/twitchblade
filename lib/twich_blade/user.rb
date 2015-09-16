@@ -1,5 +1,5 @@
 module TwichBlade
-  #user should to login into the system
+  #user should be able to access the system
   class User
     def initialize(username, password)
       @username = username

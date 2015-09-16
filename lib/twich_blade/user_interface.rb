@@ -1,6 +1,10 @@
 module TwichBlade
   #provide interface to the user
   class UserInterface
+    def security_factor
+      9999
+    end
+
     def input
       Kernel.gets.chomp
     end

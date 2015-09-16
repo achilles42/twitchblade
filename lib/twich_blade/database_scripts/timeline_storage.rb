@@ -26,8 +26,9 @@ module PostgresDatabase
       begin
         user_id = get_user_id
         user_id_following = conn.exec("select id from users where username = $1", [following_username]).field_values('id')[0].to_i
+        binding.pry
         result = conn.exec("insert into followers values($1, $2)", [user_id, user_id_following])
-      rescue StandardError => e
+      rescue PG::UniqueViolation => e
         result = nil
       end
       conn.close

@@ -7,13 +7,17 @@ module PostgresDatabase
 
     def exists?(username, password)
       response = profile_info(username, password)
-      response.ntuples != 1 ? false : true
+      response == :ERROR ? false : true
     end
 
     def profile_info(username, password)
       conn = @conn.connect
-      result = conn.exec("select id, username, password from users where username = $1 and password = $2",[username, password])
-      conn.close
+      if conn == :ERROR
+        result = nil
+      else
+        result = conn.exec("select id, username, password from users where username = $1 and password = $2",[username, password])
+        conn.close
+      end
       result
     end
 
@@ -54,9 +58,13 @@ module PostgresDatabase
     private
     def get_user_id_by_user_name(username)
       conn = @conn.connect
-      result = conn.exec("select id from users where username = $1",[username]).field_values('id')[0].to_i
-      conn.close
-      result
+      if conn == :ERROR
+        result = :ERROR
+      else
+        result = conn.exec("select id from users where username = $1",[username]).field_values('id')[0].to_i
+        conn.close
+      end
+        result
     end
   end
 end
