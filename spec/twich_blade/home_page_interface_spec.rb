@@ -83,10 +83,59 @@ module TwichBlade
 
     it 'should display my Timeline' do
       allow_any_instance_of(HomePageInterface).to receive(:print_timeline)
-      tweet = "this is tweet"
+      tweet = 'this is tweet'
       allow_any_instance_of(Timeline).to receive(:show).and_return(tweet)
       expect_any_instance_of(TimelineInterface).to receive(:display_timeline).with(tweet)
       @home_page_interface.my_timeline
+    end
+
+    it 'should display other user timeline' do
+      expect_any_instance_of(TimelineInterface).to receive(:username_validation_and_timeline)
+      @home_page_interface.others_timeline
+    end
+
+    context 'tweet' do
+      it 'should be able to take user tweet message' do
+        tweet = 'this is mock tweet'
+        allow_any_instance_of(HomePageInterface).to receive(:input).and_return(tweet)
+        allow_any_instance_of(User).to receive(:tweet).with(tweet).and_return(:SUCCESS)
+        expect_any_instance_of(HomePageInterface).to receive(:successfully_tweeted_message)
+        @home_page_interface.tweet
+      end
+
+      it 'should not be able to take user tweet message more than 140 words' do
+        tweet = 'TwichBlade is an commandline social networking service that enables users to send and read short 140-character messages called tweets'
+        allow_any_instance_of(HomePageInterface).to receive(:input).and_return(tweet)
+        allow_any_instance_of(User).to receive(:tweet).with(tweet).and_return(:FAILED)
+        expect_any_instance_of(HomePageInterface).to receive(:tweet_length_error)
+        @home_page_interface.tweet
+      end
+    end
+
+    context 're-tweet' do
+      it 'should be able to give error message' do
+        allow_any_instance_of(HomePageInterface).to receive(:others_timeline).and_return(:FAILED)
+        expect_any_instance_of(HomePageInterface).to receive(:error_messege)
+        @home_page_interface.re_tweet
+      end
+
+      it 'should be able give error messege on entering wrong tweet id' do
+        tweet_id = 12345
+        allow_any_instance_of(HomePageInterface).to receive(:others_timeline).and_return(:SUCCESS)
+        allow_any_instance_of(HomePageInterface).to receive(:take_tweet_id).and_return(tweet_id)
+        allow_any_instance_of(User).to receive(:re_tweet).with(tweet_id).and_return(:FAILED)
+        expect_any_instance_of(HomePageInterface).to receive(:tweet_id_failure_message)
+        @home_page_interface.re_tweet
+      end
+
+      it 'should be able to give successfully tweeted message' do
+        tweet_id = 12345
+        allow_any_instance_of(HomePageInterface).to receive(:others_timeline).and_return(:SUCCESS)
+        allow_any_instance_of(HomePageInterface).to receive(:take_tweet_id).and_return(tweet_id)
+        allow_any_instance_of(User).to receive(:re_tweet).with(tweet_id).and_return(:SUCCESS)
+        expect_any_instance_of(HomePageInterface).to receive(:successfully_tweeted_message)
+        @home_page_interface.re_tweet
+      end
     end
   end
 end

@@ -23,7 +23,12 @@ module TwichBlade
     end
 
     def tweet(tweet_message)
-      @user_storage.insert_tweet(tweet_message, @username)
+      if tweet_message.length <= 140
+        @user_storage.insert_tweet(tweet_message, @username)
+        :SUCCESS
+      else
+        :FAILED
+      end
     end
 
     def re_tweet(tweet_id)

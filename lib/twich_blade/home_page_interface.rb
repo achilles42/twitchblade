@@ -62,26 +62,23 @@ module TwichBlade
     def tweet
       print "Compose New tweet : "
       tweet_message = input.to_s
-      if tweet_message.length < 140
-        User.new(@user_info, "").tweet(tweet_message)
-        puts "\tYour Tweet was posted!!!"
+      if User.new(@user_info, "").tweet(tweet_message) == :SUCCESS
+        successfully_tweeted_message
       else
-        puts "Your tweet message size must be less 140 char."
+        tweet_length_error
       end
     end
 
     def re_tweet
       if others_timeline == :FAILED
-        puts "User Doesn't Exists!!!"
-        return
+        error_messege
       else
-        print "\n\tEnter Tweet Id for Retweet : "
-        tweet_id = (input.to_i / security_factor)
+        tweet_id = take_tweet_id
         response = User.new(@user_info, "").re_tweet(tweet_id)
         if response == :FAILED
-          puts "Tweet Id doesn't exist!!!  Please try again"
+          tweet_id_failure_message
         else
-          puts "Retweet Successfully"
+          successfully_tweeted_message
         end
       end
     end
@@ -96,6 +93,13 @@ module TwichBlade
     end
 
     private
+    def tweet_id_failure_message
+      puts "Tweet Id doesn't exist!!!  Please try again"
+    end
+    def take_tweet_id
+      print "\n\tEnter Tweet Id for Retweet : "
+      (input.to_i / security_factor)
+    end
     def follow_status(response_timeline, username)
       if response_timeline == nil
         puts "\t You are already following #{username}"
@@ -110,6 +114,14 @@ module TwichBlade
 
     def print_timeline
       puts "------------- * My Timeline * ----------------"
+    end
+
+      def successfully_tweeted_message
+      puts "\tYour Tweet was posted!!!"
+    end
+
+    def tweet_length_error
+      puts "Your tweet message size must be less 140 char."
     end
   end
 end

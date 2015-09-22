@@ -32,14 +32,22 @@ module TwichBlade
     end
 
     context 'tweet' do
-      it 'should able to tweet' do
+      it 'should be able to tweet with tweet lenght size <= 140 char' do
         username = 'foo1'
         password = 'bar1'
         tweet_message = 'C42 engineering it is...'
         user = User.new(username, password)
         user.login
-        response = user.tweet(tweet_message)
-        expect(response.cmd_tuples).to eq(1)
+        expect(user.tweet(tweet_message)).to eq(:SUCCESS)
+      end
+
+      it 'should not be able to tweet with tweet lenght size > 140' do
+        username = 'foo1'
+        password = 'bar1'
+        tweet_message = 'TwichBlade is an commandline social networking service that enables users to send and read short 140-character messages called tweets thisdfsdfsdfsdfsdfsdfsdfsfsfsdfsfffffff'
+        user = User.new(username, password)
+        user.login
+        expect(user.tweet(tweet_message)).to eq(:FAILED)
       end
     end
 
