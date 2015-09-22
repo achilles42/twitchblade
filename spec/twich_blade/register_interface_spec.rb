@@ -58,7 +58,7 @@ module TwichBlade
           allow_any_instance_of(RegisterInterface).to receive(:display_header).with("SignUp")
           allow_any_instance_of(RegisterInterface).to receive(:take_user_input)
           allow_any_instance_of(RegisterInterface).to receive(:validate?).and_return(false)
-          allow_any_instance_of(RegisterInterface).to receive(:validate_error)
+          expect_any_instance_of(RegisterInterface).to receive(:validate_error)
           allow_any_instance_of(RegisterInterface).to receive(:display_index_page)
           @register_interface.display
         end
@@ -68,7 +68,7 @@ module TwichBlade
           allow_any_instance_of(RegisterInterface).to receive(:take_user_input)
           allow_any_instance_of(RegisterInterface).to receive(:validate?).and_return(true)
           allow_any_instance_of(User).to receive(:register).and_return(:ERROR)
-          allow_any_instance_of(RegisterInterface).to receive(:connection_error)
+          expect_any_instance_of(RegisterInterface).to receive(:connection_error)
           allow_any_instance_of(RegisterInterface).to receive(:display_index_page)
           @register_interface.display
         end
@@ -77,8 +77,20 @@ module TwichBlade
           allow_any_instance_of(RegisterInterface).to receive(:display_header).with("SignUp")
           allow_any_instance_of(RegisterInterface).to receive(:take_user_input)
           allow_any_instance_of(RegisterInterface).to receive(:validate?).and_return(true)
-          allow_any_instance_of(User).to receive(:register).and_return(:success)
-          allow_any_instance_of(RegisterInterface).to receive(:connection_error)
+          allow_any_instance_of(User).to receive(:register).and_return(:SUCCESS)
+          message = "User already exist with this UserName!!!  Please try again"
+          expect_any_instance_of(RegisterInterface).to receive(:display_response).with(:SUCCESS).and_return(message)
+          allow_any_instance_of(RegisterInterface).to receive(:display_index_page)
+          @register_interface.display
+        end
+
+         it 'should not allow user to register when some database connection problem' do
+          allow_any_instance_of(RegisterInterface).to receive(:display_header).with("SignUp")
+          allow_any_instance_of(RegisterInterface).to receive(:take_user_input)
+          allow_any_instance_of(RegisterInterface).to receive(:validate?).and_return(true)
+          allow_any_instance_of(User).to receive(:register).and_return(:FAILED)
+          message = "Congratulations signed up succesfully."
+          allow_any_instance_of(RegisterInterface).to receive(:display_response).with(:FAILED).and_return(message)
           allow_any_instance_of(RegisterInterface).to receive(:display_index_page)
           @register_interface.display
         end

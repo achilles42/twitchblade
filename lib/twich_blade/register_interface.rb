@@ -24,13 +24,9 @@ module TwichBlade
     private
     def display_response(response)
       if response == :FAILED
-        puts "---------------------------------------------------------"
-        p "User already exist with this UserName!!!  Please try again"
-        puts "---------------------------------------------------------"
+        puts "User already exist with this UserName!!!  Please try again"
       else
-        puts "---------------------------------------------------------"
-        p "Congratulations signed up succesfully."
-        puts "---------------------------------------------------------"
+        puts "Congratulations signed up succesfully."
       end
     end
 

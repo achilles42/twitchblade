@@ -15,19 +15,6 @@ module TwichBlade
       end
     end
 
-    private
-    def display_error_message
-      puts "---------------------------------------------------"
-      puts "UserName or Password is incorrect. please try again"
-      puts "---------------------------------------------------"
-    end
-
-    def welcome_message(user_name)
-      puts "-------------------------------------------------------"
-      puts "Welcome #{user_name} !!! you are successfully signed in."
-      puts "-------------------------------------------------------"
-    end
-
     def unauthorized_user
       display_error_message
       display_index_page
@@ -42,6 +29,15 @@ module TwichBlade
         welcome_message(response)
         HomePageInterface.new.display(response)
       end
+    end
+
+    private
+    def display_error_message
+      puts "UserName or Password is incorrect. please try again"
+    end
+
+    def welcome_message(user_name)
+      puts "Welcome #{user_name} !!! you are successfully signed in."
     end
   end
 end
