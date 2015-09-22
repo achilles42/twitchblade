@@ -7,12 +7,12 @@ module TwichBlade
       if validate?
         response = User.new(@username, @password).register
         if response == :ERROR
-          puts "something went wrong!!! please try again"
+          connection_error
         else
           display_response(response)
         end
       else
-        puts("ALERT !!! username length must be less than 15 and password must be between 6 to 14 char long")
+        validate_error
       end
       display_index_page
     end
@@ -32,6 +32,10 @@ module TwichBlade
         p "Congratulations signed up succesfully."
         puts "---------------------------------------------------------"
       end
+    end
+
+    def validate_error
+      puts("ALERT !!! username length must be less than 15 and password must be between 6 to 14 char long")
     end
   end
 end
