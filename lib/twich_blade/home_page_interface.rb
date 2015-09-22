@@ -42,10 +42,10 @@ module TwichBlade
       print "Enter Username : "
       username = input
       response = PostgresDatabase::UserStorage.new.username_validate(username)
-      if response.ntuples != 1
-        puts "\tUser name doesn't Exists"
+      if response == true
+        puts "\tUser doesn't Exists"
       else
-        response1 = Timeline.new(@user_info.field_values('username')[0].to_s).follow(username)
+        response1 = Timeline.new(@user_info).follow(username)
         if response1 == nil
           puts "\t You are already following #{username}"
         else
@@ -56,7 +56,7 @@ module TwichBlade
 
     def my_timeline
       puts "------------- * My Timeline * ----------------"
-      tweets = Timeline.new(@user_info.field_values('username')[0].to_s).show
+      tweets = Timeline.new(@user_info).show
       TimelineInterface.new.display_timeline(tweets)
     end
 
@@ -67,11 +67,11 @@ module TwichBlade
     def tweet
       print "Compose New tweet : "
       tweet_message = input.to_s
-      if tweet_message.length < 144
-        User.new(@user_info.field_values('username')[0].to_s, @user_info.field_values('password')[0].to_s).tweet(tweet_message)
+      if tweet_message.length < 140
+        User.new(@user_info, "").tweet(tweet_message)
         puts "\tYour Tweet was posted!"
       else
-        puts "Your tweet message size must be less 144 char."
+        puts "Your tweet message size must be less 140 char."
       end
     end
 
@@ -82,7 +82,7 @@ module TwichBlade
       else
         print "\n\tEnter Tweet Id for Retweet : "
         tweet_id = (input.to_i / security_factor)
-        response = User.new(@user_info.field_values('username')[0].to_s, @user_info.field_values('password')[0].to_s).re_tweet(tweet_id)
+        response = User.new(@user_info, "").re_tweet(tweet_id)
         if response == :FAILED
           puts "Tweet Id doesn't exist!!!  Please try again"
         else
@@ -92,7 +92,7 @@ module TwichBlade
     end
 
     def my_wall
-      following_list = Timeline.new(@user_info.field_values('username')[0].to_s).followings
+      following_list = Timeline.new(@user_info).followings
       puts "\t\t\t MY WALL "
       timeline_interface = TimelineInterface.new
       following_list.each do |following_username|

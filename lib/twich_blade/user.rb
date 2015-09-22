@@ -9,7 +9,9 @@ module TwichBlade
 
     def login
       response = @user_storage.exists?(@username, @password)
-      if response == true
+      if response == :ERROR
+        :ERROR
+      elsif response == true
         :SUCCESS
       else
         :FAILED
@@ -42,8 +44,7 @@ module TwichBlade
     end
 
     def validate?
-      response = @user_storage.username_validate(@username)
-      response.ntuples != 0 ? false : true
+      @user_storage.username_validate(@username)
     end
   end
 end

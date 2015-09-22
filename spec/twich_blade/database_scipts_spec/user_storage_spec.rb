@@ -19,19 +19,19 @@ module PostgresDatabase
     it 'should able to return info of logged in user' do
       username = "foo1"
       password = "bar1"
-      response = @conn.exec("select id, username, password from users where username = $1 and password = $2",[username, password])
+      response = @conn.exec("select id, username, password from users where username = $1 and password = $2",[username, password]).field_values('username')[0]
       user_storage = UserStorage.new
-      expect(user_storage.profile_info(username, password).ntuples).to eq(response.ntuples)
+      expect(user_storage.profile_info(username, password)).to eq(response)
     end
 
-    it 'should able to to check the user existance of valid user' do
+    it 'should able to to check the existance of valid user' do
       username = "foo1"
       password = "bar1"
       user_storage = UserStorage.new
       expect(user_storage.exists?(username, password)).to eq(true)
     end
 
-    it 'should able to to check the user existance of invalid user' do
+    it 'should able to to check the existance of invalid user' do
       username = "foo4"
       password = "bar1"
       user_storage = UserStorage.new

@@ -6,7 +6,11 @@ module TwichBlade
       take_user_input
       if validate?
         response = User.new(@username, @password).register
-        display_response(response)
+        if response == :ERROR
+          puts "something went wrong!!! please try again"
+        else
+          display_response(response)
+        end
       else
         puts("ALERT !!! username length must be less than 15 and password must be between 6 to 14 char long")
       end

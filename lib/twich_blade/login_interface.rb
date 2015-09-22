@@ -5,8 +5,10 @@ module TwichBlade
       display_header("SignIn")
       take_user_input
       logged_in = User.new(@username, @password).login
-      binding.pry
-      if logged_in == :FAILED
+      if logged_in == :ERROR
+        connection_error
+        display_index_page
+      elsif logged_in == :FAILED
         unauthorized_user
       else
         authorized_user
@@ -33,11 +35,11 @@ module TwichBlade
 
     def authorized_user
       response = User.new(@username, @password).get_user_info
-      if response == nil
-        puts "SORRY !!! something went wrong"
+      if response == :ERROR
+        connection_error
         display_index_page
       else
-        welcome_message(response.field_values('username')[0])
+        welcome_message(response)
         HomePageInterface.new.display(response)
       end
     end

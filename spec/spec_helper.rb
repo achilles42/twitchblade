@@ -1,5 +1,7 @@
 require 'twich_blade'
 
+require 'simplecov'
+SimpleCov.start
 require 'pg'
 require 'figaro'
 require 'pry'

@@ -27,5 +27,9 @@ module TwichBlade
     def error_message
       puts "\tPlease Enter the correct choice : "
     end
+
+    def connection_error
+      puts "Something went wrong!!! please try again"
+    end
   end
 end

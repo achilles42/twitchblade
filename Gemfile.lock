@@ -3,8 +3,10 @@ GEM
   specs:
     coderay (1.1.0)
     diff-lcs (1.2.5)
+    docile (1.1.5)
     figaro (1.1.1)
       thor (~> 0.14)
+    json (1.8.3)
     method_source (0.8.2)
     pg (0.18.2)
     pry (0.10.1)
@@ -25,6 +27,11 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.3.0)
     rspec-support (3.3.0)
+    simplecov (0.10.0)
+      docile (~> 1.1.0)
+      json (~> 1.8)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.0)
     slop (3.6.0)
     thor (0.19.1)
 
@@ -37,6 +44,7 @@ DEPENDENCIES
   pry
   rake
   rspec
+  simplecov
 
 BUNDLED WITH
-   1.10.5
+   1.10.6
