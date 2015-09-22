@@ -1,7 +1,9 @@
-require 'twich_blade'
-
 require 'simplecov'
+
+SimpleCov.minimum_coverage(95)
 SimpleCov.start
+
+require 'twich_blade'
 require 'pg'
 require 'figaro'
 require 'pry'

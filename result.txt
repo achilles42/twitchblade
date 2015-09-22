@@ -1,0 +1,1333 @@
+Inspecting 28 files
+.CCCWWWWCCCCWCCCCCWWWCWCWCCC
+
+Offenses:
+
+Rakefile:6:6: C: Use the new Ruby 1.9 hash syntax.
+task :default => [:spec]
+     ^^^^^^^^^^^
+Vagrantfile:4:19: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+Vagrant.configure("2") do |config|
+                  ^^^
+Vagrantfile:6:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    cli.vm.box = "ubuntu/trusty64"
+                 ^^^^^^^^^^^^^^^^^
+Vagrantfile:7:42: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    cli.vm.network :private_network, ip: "10.1.1.22"
+                                         ^^^^^^^^^^^
+Vagrantfile:8:23: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    cli.vm.hostname = "cli"
+                      ^^^^^
+Vagrantfile:9:26: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    cli.vm.synced_folder "./", "/home/vagrant/app"
+                         ^^^^
+Vagrantfile:9:32: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    cli.vm.synced_folder "./", "/home/vagrant/app"
+                               ^^^^^^^^^^^^^^^^^^^
+Vagrantfile:11:22: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    cli.vm.provision "shell", privileged: false, inline: <<-SHELL
+                     ^^^^^^^
+Vagrantfile:18:81: C: Line is too long. [88/80]
+      sudo apt-get install -y libcurl4-openssl-dev python-software-properties libffi-dev
+                                                                                ^^^^^^^^
+Vagrantfile:22:81: C: Line is too long. [87/80]
+      sudo apt-get install -y postgresql postgresql-client postgresql-contrib libpq-dev
+                                                                                ^^^^^^^
+Vagrantfile:25:81: C: Line is too long. [87/80]
+      git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+                                                                                ^^^^^^^
+Vagrantfile:39:17: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    db.vm.box = "ubuntu/trusty64"
+                ^^^^^^^^^^^^^^^^^
+Vagrantfile:40:41: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    db.vm.network :private_network, ip: "10.1.1.33"
+                                        ^^^^^^^^^^^
+Vagrantfile:41:22: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    db.vm.hostname = "db"
+                     ^^^^
+Vagrantfile:43:21: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    db.vm.provision "shell", privileged: false, inline: <<-SHELL
+                    ^^^^^^^
+Vagrantfile:45:81: C: Line is too long. [87/80]
+      sudo apt-get install -y postgresql postgresql-client postgresql-contrib libpq-dev
+                                                                                ^^^^^^^
+Vagrantfile:48:4: C: Final newline missing.
+end
+   
+bin/entry_point.rb:2:71: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+$LOAD_PATH.unshift(File.expand_path(File.join(File.dirname(__FILE__), "..", "lib")))
+                                                                      ^^^^
+bin/entry_point.rb:2:77: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+$LOAD_PATH.unshift(File.expand_path(File.join(File.dirname(__FILE__), "..", "lib")))
+                                                                            ^^^^^
+bin/entry_point.rb:2:81: C: Line is too long. [84/80]
+$LOAD_PATH.unshift(File.expand_path(File.join(File.dirname(__FILE__), "..", "lib")))
+                                                                                ^^^^
+bin/entry_point.rb:7:59: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+Figaro.application = Figaro::Application.new(environment: "DEVELOPMENT", path: "config/application.yml")
+                                                          ^^^^^^^^^^^^^
+bin/entry_point.rb:7:80: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+Figaro.application = Figaro::Application.new(environment: "DEVELOPMENT", path: "config/application.yml")
+                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^
+bin/entry_point.rb:7:81: C: Line is too long. [104/80]
+Figaro.application = Figaro::Application.new(environment: "DEVELOPMENT", path: "config/application.yml")
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^
+bin/entry_point.rb:10:9: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+require "twich_blade"
+        ^^^^^^^^^^^^^
+lib/twich_blade/database_scripts/db_connection.rb:2:3: C: Missing space after #.
+  #database connection
+  ^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/database_scripts/db_connection.rb:5:21: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      @dbname = ENV["dbname"]
+                    ^^^^^^^^
+lib/twich_blade/database_scripts/db_connection.rb:6:19: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      @host = ENV["host"]
+                  ^^^^^^
+lib/twich_blade/database_scripts/db_connection.rb:10:7: C: Redundant [33mbegin[0m block detected.
+      begin
+      ^^^^^
+lib/twich_blade/database_scripts/db_connection.rb:11:34: C: Space inside parentheses detected.
+        @connection = PG.connect( :dbname => @dbname, :host => @host, :port => 5432 )
+                                 ^
+lib/twich_blade/database_scripts/db_connection.rb:11:35: C: Use the new Ruby 1.9 hash syntax.
+        @connection = PG.connect( :dbname => @dbname, :host => @host, :port => 5432 )
+                                  ^^^^^^^^^^
+lib/twich_blade/database_scripts/db_connection.rb:11:55: C: Use the new Ruby 1.9 hash syntax.
+        @connection = PG.connect( :dbname => @dbname, :host => @host, :port => 5432 )
+                                                      ^^^^^^^^
+lib/twich_blade/database_scripts/db_connection.rb:11:71: C: Use the new Ruby 1.9 hash syntax.
+        @connection = PG.connect( :dbname => @dbname, :host => @host, :port => 5432 )
+                                                                      ^^^^^^^^
+lib/twich_blade/database_scripts/db_connection.rb:11:81: C: Line is too long. [85/80]
+        @connection = PG.connect( :dbname => @dbname, :host => @host, :port => 5432 )
+                                                                                ^^^^^
+lib/twich_blade/database_scripts/db_connection.rb:11:84: C: Space inside parentheses detected.
+        @connection = PG.connect( :dbname => @dbname, :host => @host, :port => 5432 )
+                                                                                   ^
+lib/twich_blade/database_scripts/db_connection.rb:12:35: W: Useless assignment to variable - [33me[0m.
+      rescue PG::ConnectionBad => e
+                                  ^
+lib/twich_blade/database_scripts/timeline_storage.rb:2:3: C: Missing space after #.
+  #Timeline Crud
+  ^^^^^^^^^^^^^^
+lib/twich_blade/database_scripts/timeline_storage.rb:9:9: C: Do not prefix reader method names with [33mget_[0m.
+    def get_all_tweets
+        ^^^^^^^^^^^^^^
+lib/twich_blade/database_scripts/timeline_storage.rb:15:28: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        result = conn.exec("select id, tweet, date_and_time, retweet from tweets where user_id = $1", [user_id])
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/database_scripts/timeline_storage.rb:15:81: C: Line is too long. [112/80]
+        result = conn.exec("select id, tweet, date_and_time, retweet from tweets where user_id = $1", [user_id])
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/database_scripts/timeline_storage.rb:21:9: C: Do not prefix reader method names with [33mget_[0m.
+    def get_user_id
+        ^^^^^^^^^^^
+lib/twich_blade/database_scripts/timeline_storage.rb:26:28: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        result = conn.exec("select id from users where username = $1", [@username]).field_values('id')[0].to_i
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/database_scripts/timeline_storage.rb:26:81: C: Line is too long. [110/80]
+        result = conn.exec("select id from users where username = $1", [@username]).field_values('id')[0].to_i
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/database_scripts/timeline_storage.rb:32:5: C: Method has too many lines. [14/10]
+    def insert_follower(following_username)
+    ^^^
+lib/twich_blade/database_scripts/timeline_storage.rb:39:41: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+          user_id_following = conn.exec("select id from users where username = $1", [following_username]).field_values('id')[0].to_i
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/database_scripts/timeline_storage.rb:39:81: C: Line is too long. [132/80]
+          user_id_following = conn.exec("select id from users where username = $1", [following_username]).field_values('id')[0].to_i
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/database_scripts/timeline_storage.rb:40:30: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+          result = conn.exec("insert into followers values($1, $2)", [user_id, user_id_following])
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/database_scripts/timeline_storage.rb:40:81: C: Line is too long. [98/80]
+          result = conn.exec("insert into followers values($1, $2)", [user_id, user_id_following])
+                                                                                ^^^^^^^^^^^^^^^^^^
+lib/twich_blade/database_scripts/timeline_storage.rb:41:39: W: Useless assignment to variable - [33me[0m.
+        rescue PG::UniqueViolation => e
+                                      ^
+lib/twich_blade/database_scripts/timeline_storage.rb:49:5: C: Assignment Branch Condition size for get_following_name is too high. [16.67/15]
+    def get_following_name
+    ^^^
+lib/twich_blade/database_scripts/timeline_storage.rb:49:5: C: Method has too many lines. [14/10]
+    def get_following_name
+    ^^^
+lib/twich_blade/database_scripts/timeline_storage.rb:49:9: C: Do not prefix reader method names with [33mget_[0m.
+    def get_following_name
+        ^^^^^^^^^^^^^^^^^^
+lib/twich_blade/database_scripts/timeline_storage.rb:57:9: C: Prefer [33meach[0m over [33mfor[0m.
+        for follow in 0..no_of_following - 1
+        ^^^
+lib/twich_blade/database_scripts/timeline_storage.rb:58:26: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+          id = conn.exec("select follower_id from followers where user_id = $1", [user_id]).field_values('follower_id')[follow].to_i
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/database_scripts/timeline_storage.rb:58:81: C: Line is too long. [132/80]
+          id = conn.exec("select follower_id from followers where user_id = $1", [user_id]).field_values('follower_id')[follow].to_i
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/database_scripts/timeline_storage.rb:59:31: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+          result << conn.exec("select username from users where id = $1", [id]).field_values('username')[0].to_s
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/database_scripts/timeline_storage.rb:59:81: C: Line is too long. [112/80]
+          result << conn.exec("select username from users where id = $1", [id]).field_values('username')[0].to_s
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/database_scripts/timeline_storage.rb:66:5: C: Keep a blank line before and after [33mprivate[0m.
+    private
+    ^^^^^^^
+lib/twich_blade/database_scripts/timeline_storage.rb:72:28: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        result = conn.exec("select count(*) from followers where user_id = $1", [user_id]).field_values('count')[0].to_i
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/database_scripts/timeline_storage.rb:72:81: C: Line is too long. [120/80]
+        result = conn.exec("select count(*) from followers where user_id = $1", [user_id]).field_values('count')[0].to_i
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/database_scripts/user_storage.rb:2:3: C: Missing space after #.
+  #user CRUD
+  ^^^^^^^^^^
+lib/twich_blade/database_scripts/user_storage.rb:11:9: W: Useless assignment to variable - [33mresponse[0m.
+        response = :ERROR
+        ^^^^^^^^
+lib/twich_blade/database_scripts/user_storage.rb:22:28: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        result = conn.exec("select username from users where username = $1 and password = $2",[username, password]).field_values('username')[0]
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/database_scripts/user_storage.rb:22:81: C: Line is too long. [143/80]
+        result = conn.exec("select username from users where username = $1 and password = $2",[username, password]).field_values('username')[0]
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/database_scripts/user_storage.rb:22:94: C: Space missing after comma.
+        result = conn.exec("select username from users where username = $1 and password = $2",[username, password]).field_values('username')[0]
+                                                                                             ^
+lib/twich_blade/database_scripts/user_storage.rb:34:28: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        result = conn.exec("insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP, $3)",[user_id, message, username])
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/database_scripts/user_storage.rb:34:81: C: Line is too long. [121/80]
+        result = conn.exec("insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP, $3)",[user_id, message, username])
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/database_scripts/user_storage.rb:34:92: C: Space missing after comma.
+        result = conn.exec("insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP, $3)",[user_id, message, username])
+                                                                                           ^
+lib/twich_blade/database_scripts/user_storage.rb:40:5: C: Assignment Branch Condition size for re_tweet is too high. [15.36/15]
+    def re_tweet(tweet_id, username)
+    ^^^
+lib/twich_blade/database_scripts/user_storage.rb:40:5: C: Method has too many lines. [13/10]
+    def re_tweet(tweet_id, username)
+    ^^^
+lib/twich_blade/database_scripts/user_storage.rb:46:38: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        id_tweet_retweet = conn.exec("select user_id, tweet, retweet from tweets where id = $1",[tweet_id])
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/database_scripts/user_storage.rb:46:81: C: Line is too long. [107/80]
+        id_tweet_retweet = conn.exec("select user_id, tweet, retweet from tweets where id = $1",[tweet_id])
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/database_scripts/user_storage.rb:46:96: C: Space missing after comma.
+        id_tweet_retweet = conn.exec("select user_id, tweet, retweet from tweets where id = $1",[tweet_id])
+                                                                                               ^
+lib/twich_blade/database_scripts/user_storage.rb:47:28: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        result = conn.exec("insert into tweets values (DEFAULT, $1, $2, LOCALTIMESTAMP, $3)",[user_id, id_tweet_retweet.field_values('tweet')[0].to_s, id_tweet_retweet.field_values('retweet')[0].to_s])
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/database_scripts/user_storage.rb:47:81: C: Line is too long. [201/80]
+        result = conn.exec("insert into tweets values (DEFAULT, $1, $2, LOCALTIMESTAMP, $3)",[user_id, id_tweet_retweet.field_values('tweet')[0].to_s, id_tweet_retweet.field_values('retweet')[0].to_s])
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/database_scripts/user_storage.rb:47:93: C: Space missing after comma.
+        result = conn.exec("insert into tweets values (DEFAULT, $1, $2, LOCALTIMESTAMP, $3)",[user_id, id_tweet_retweet.field_values('tweet')[0].to_s, id_tweet_retweet.field_values('retweet')[0].to_s])
+                                                                                            ^
+lib/twich_blade/database_scripts/user_storage.rb:48:9: C: Favor modifier [33mif[0m usage when having a single-line body. Another good alternative is the usage of control flow [33m&&[0m/[33m||[0m.
+        if id_tweet_retweet.ntuples == 0
+        ^^
+lib/twich_blade/database_scripts/user_storage.rb:61:28: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        result = conn.exec("select username from users where username = $1 ",[username]).ntuples == 1 ? false : true
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/database_scripts/user_storage.rb:61:77: C: Space missing after comma.
+        result = conn.exec("select username from users where username = $1 ",[username]).ntuples == 1 ? false : true
+                                                                            ^
+lib/twich_blade/database_scripts/user_storage.rb:61:81: C: Line is too long. [116/80]
+        result = conn.exec("select username from users where username = $1 ",[username]).ntuples == 1 ? false : true
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/database_scripts/user_storage.rb:72:28: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        result = conn.exec("insert into users values(DEFAULT, $1, $2)",[username, password]);
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/database_scripts/user_storage.rb:72:71: C: Space missing after comma.
+        result = conn.exec("insert into users values(DEFAULT, $1, $2)",[username, password]);
+                                                                      ^
+lib/twich_blade/database_scripts/user_storage.rb:72:81: C: Line is too long. [93/80]
+        result = conn.exec("insert into users values(DEFAULT, $1, $2)",[username, password]);
+                                                                                ^^^^^^^^^^^^^
+lib/twich_blade/database_scripts/user_storage.rb:72:93: C: Do not use semicolons to terminate expressions.
+        result = conn.exec("insert into users values(DEFAULT, $1, $2)",[username, password]);
+                                                                                            ^
+lib/twich_blade/database_scripts/user_storage.rb:78:5: C: Keep a blank line before and after [33mprivate[0m.
+    private
+    ^^^^^^^
+lib/twich_blade/database_scripts/user_storage.rb:84:28: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        result = conn.exec("select id from users where username = $1",[username]).field_values('id')[0].to_i
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/database_scripts/user_storage.rb:84:70: C: Space missing after comma.
+        result = conn.exec("select id from users where username = $1",[username]).field_values('id')[0].to_i
+                                                                     ^
+lib/twich_blade/database_scripts/user_storage.rb:84:81: C: Line is too long. [108/80]
+        result = conn.exec("select id from users where username = $1",[username]).field_values('id')[0].to_i
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/home_page_interface.rb:2:3: C: Missing space after #.
+  #user can see home page
+  ^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/home_page_interface.rb:4:5: C: Method has too many lines. [11/10]
+    def display(user_info)
+    ^^^
+lib/twich_blade/home_page_interface.rb:6:7: C: Use [33mKernel#loop[0m for infinite loops.
+      while true
+      ^^^^^
+lib/twich_blade/home_page_interface.rb:6:13: W: Literal [33mtrue[0m appeared in a condition.
+      while true
+            ^^^^
+lib/twich_blade/home_page_interface.rb:9:22: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        if choice == "7"
+                     ^^^
+lib/twich_blade/home_page_interface.rb:19:81: C: Line is too long. [135/80]
+      print "  1 My Timeline\n  2 tweet\n  3 Other's  Timeline\n  4 Retweet\n  5 Follow\n  6 My Wall\n  7 logout\nEnter your choice : "
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/home_page_interface.rb:22:5: C: Cyclomatic complexity for process is too high. [7/6]
+    def process(choice)
+    ^^^
+lib/twich_blade/home_page_interface.rb:22:5: C: Method has too many lines. [15/10]
+    def process(choice)
+    ^^^
+lib/twich_blade/home_page_interface.rb:22:5: C: Perceived complexity for process is too high. [8/7]
+    def process(choice)
+    ^^^
+lib/twich_blade/home_page_interface.rb:23:20: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      if choice == "1"
+                   ^^^
+lib/twich_blade/home_page_interface.rb:25:23: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      elsif choice == "2"
+                      ^^^
+lib/twich_blade/home_page_interface.rb:27:23: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      elsif choice == "3"
+                      ^^^
+lib/twich_blade/home_page_interface.rb:29:23: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      elsif choice == "4"
+                      ^^^
+lib/twich_blade/home_page_interface.rb:31:23: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      elsif choice == "5"
+                      ^^^
+lib/twich_blade/home_page_interface.rb:33:23: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      elsif choice == "6"
+                      ^^^
+lib/twich_blade/home_page_interface.rb:40:5: C: Keep a blank line before and after [33mprivate[0m.
+    private
+    ^^^^^^^
+lib/twich_blade/home_page_interface.rb:41:5: C: Method has too many lines. [13/10]
+    def follow
+    ^^^
+lib/twich_blade/home_page_interface.rb:42:13: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      print "Enter Username : "
+            ^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/home_page_interface.rb:49:22: C: Prefer the use of the [33mnil?[0m predicate.
+        if response1 == nil
+                     ^^
+lib/twich_blade/home_page_interface.rb:58:12: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      puts "------------- * My Timeline * ----------------"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/home_page_interface.rb:68:13: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      print "Compose New tweet : "
+            ^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/home_page_interface.rb:71:30: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        User.new(@user_info, "").tweet(tweet_message)
+                             ^^
+lib/twich_blade/home_page_interface.rb:74:14: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        puts "Your tweet message size must be less 140 char."
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/home_page_interface.rb:78:5: C: Method has too many lines. [13/10]
+    def re_tweet
+    ^^^
+lib/twich_blade/home_page_interface.rb:85:41: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        response = User.new(@user_info, "").re_tweet(tweet_id)
+                                        ^^
+lib/twich_blade/home_page_interface.rb:89:16: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+          puts "Retweet Successfully"
+               ^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/login_interface.rb:2:3: C: Missing space after #.
+  #user can login
+  ^^^^^^^^^^^^^^^
+lib/twich_blade/login_interface.rb:4:5: C: Method has too many lines. [11/10]
+    def display
+    ^^^
+lib/twich_blade/login_interface.rb:5:22: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      display_header("SignIn")
+                     ^^^^^^^^
+lib/twich_blade/login_interface.rb:18:5: C: Keep a blank line before and after [33mprivate[0m.
+    private
+    ^^^^^^^
+lib/twich_blade/login_interface.rb:20:12: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      puts "---------------------------------------------------"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/login_interface.rb:21:12: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      puts "UserName or Password is incorrect. please try again"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/login_interface.rb:22:12: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      puts "---------------------------------------------------"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/login_interface.rb:26:12: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      puts "-------------------------------------------------------"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/login_interface.rb:28:12: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      puts "-------------------------------------------------------"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/register_interface.rb:2:3: C: Missing space after #.
+  #Guest/non-registred user can register
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/register_interface.rb:4:5: C: Method has too many lines. [13/10]
+    def display
+    ^^^
+lib/twich_blade/register_interface.rb:5:22: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      display_header("SignUp")
+                     ^^^^^^^^
+lib/twich_blade/register_interface.rb:10:16: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+          puts "something went wrong!!! please try again"
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/register_interface.rb:15:14: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        puts("ALERT !!! username length must be less than 15 and password must be between 6 to 14 char long")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/register_interface.rb:15:81: C: Line is too long. [109/80]
+        puts("ALERT !!! username length must be less than 15 and password must be between 6 to 14 char long")
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/register_interface.rb:21:20: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      @username != "" && @password != "" && @username.length < 15 && @password.length > 4 && @password.length < 15 ? true : false
+                   ^^
+lib/twich_blade/register_interface.rb:21:39: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      @username != "" && @password != "" && @username.length < 15 && @password.length > 4 && @password.length < 15 ? true : false
+                                      ^^
+lib/twich_blade/register_interface.rb:21:81: C: Line is too long. [129/80]
+      @username != "" && @password != "" && @username.length < 15 && @password.length > 4 && @password.length < 15 ? true : false
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/register_interface.rb:24:5: C: Keep a blank line before and after [33mprivate[0m.
+    private
+    ^^^^^^^
+lib/twich_blade/register_interface.rb:27:14: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        puts "---------------------------------------------------------"
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/register_interface.rb:28:11: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        p "User already exist with this UserName!!!  Please try again"
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/register_interface.rb:29:14: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        puts "---------------------------------------------------------"
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/register_interface.rb:31:14: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        puts "---------------------------------------------------------"
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/register_interface.rb:32:11: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        p "Congratulations signed up succesfully."
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/register_interface.rb:33:14: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        puts "---------------------------------------------------------"
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/timeline.rb:2:3: C: Missing space after #.
+  #show the timeline of registred users
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/timeline.rb:14:9: C: Do not prefix reader method names with [33mget_[0m.
+    def get_user_id
+        ^^^^^^^^^^^
+lib/twich_blade/timeline_interface.rb:2:3: C: Missing space after #.
+  #we can view registred users timeline
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/timeline_interface.rb:5:22: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      display_header("View Timeline")
+                     ^^^^^^^^^^^^^^^
+lib/twich_blade/timeline_interface.rb:11:13: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      print "Enter Username :"
+            ^^^^^^^^^^^^^^^^^^
+lib/twich_blade/timeline_interface.rb:17:5: C: Use 2 (not 3) spaces for indentation.
+       timeline = Timeline.new(username).show
+    ^^^
+lib/twich_blade/timeline_interface.rb:18:7: C: Inconsistent indentation detected.
+      if timeline == false
+      ^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/timeline_interface.rb:26:7: C: Use a guard clause instead of wrapping the code inside a conditional expression.
+      if tweets.ntuples != 0
+      ^^
+lib/twich_blade/timeline_interface.rb:26:7: C: Favor modifier [33mif[0m usage when having a single-line body. Another good alternative is the usage of control flow [33m&&[0m/[33m||[0m.
+      if tweets.ntuples != 0
+      ^^
+lib/twich_blade/timeline_interface.rb:31:5: C: Assignment Branch Condition size for display_tweets is too high. [17.06/15]
+    def display_tweets(tweets)
+    ^^^
+lib/twich_blade/timeline_interface.rb:32:7: C: Prefer [33meach[0m over [33mfor[0m.
+      for tweet in 0..tweets.ntuples - 1
+      ^^^
+lib/twich_blade/timeline_interface.rb:33:81: C: Line is too long. [151/80]
+        puts "Tweet Id : #{tweets.field_values('id')[tweet].to_i * security_factor} \t\tDate & Time  : #{tweets.field_values('date_and_time')[tweet]} "
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/timeline_interface.rb:36:81: C: Line is too long. [85/80]
+        puts "\n--------------------------------------------------------------------"
+                                                                                ^^^^^
+lib/twich_blade/timeline_interface.rb:40:5: C: Keep a blank line before and after [33mprivate[0m.
+    private
+    ^^^^^^^
+lib/twich_blade/twichblade_cli.rb:2:3: C: Missing space after #.
+  #take input from user and deligate the responsibility
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/twichblade_cli.rb:8:5: C: Assignment Branch Condition size for run is too high. [16.43/15]
+    def run
+    ^^^
+lib/twich_blade/twichblade_cli.rb:8:5: C: Method has too many lines. [20/10]
+    def run
+    ^^^
+lib/twich_blade/twichblade_cli.rb:11:7: C: Use [33mKernel#loop[0m for infinite loops.
+      while true
+      ^^^^^
+lib/twich_blade/twichblade_cli.rb:11:13: W: Literal [33mtrue[0m appeared in a condition.
+      while true
+            ^^^^
+lib/twich_blade/twichblade_cli.rb:13:29: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        if @input_string == "1"
+                            ^^^
+lib/twich_blade/twichblade_cli.rb:15:32: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        elsif @input_string == "2"
+                               ^^^
+lib/twich_blade/twichblade_cli.rb:17:32: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        elsif @input_string == "3"
+                               ^^^
+lib/twich_blade/twichblade_cli.rb:19:32: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        elsif @input_string == "4"
+                               ^^^
+lib/twich_blade/user.rb:2:3: C: Missing space after #.
+  #user should be able to access the system
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/user.rb:21:9: C: Do not prefix reader method names with [33mget_[0m.
+    def get_user_info
+        ^^^^^^^^^^^^^
+lib/twich_blade/user_interface.rb:2:3: C: Missing space after #.
+  #provide interface to the user
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/user_interface.rb:13:81: C: Line is too long. [183/80]
+      print "-------------------------------\n\tWelcome to TwichBlade\t\n-------------------------------\n\t1   SignUp\n\t2   SignIn\n\t3   Timeline\n\t4   Exit\nEnter your Choice  :"
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/user_interface.rb:17:81: C: Line is too long. [107/80]
+      puts "--------------------------------\n   Welcome to #{page} page\n--------------------------------"
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/user_interface.rb:21:13: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      print "Enter UserName : "
+            ^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/user_interface.rb:23:13: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      print "Enter Password : "
+            ^^^^^^^^^^^^^^^^^^^
+lib/twich_blade/user_interface.rb:32:12: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      puts "Something went wrong!!! please try again"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/twich_blade.rb:1:1: C: Missing top-level module documentation comment.
+module TwichBlade
+^^^^^^
+lib/twich_blade.rb:4:1: C: Missing top-level module documentation comment.
+module PostgresDatabase
+^^^^^^
+spec/spec_helper.rb:11:59: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+Figaro.application = Figaro::Application.new(environment: "TESTING", path: "config/application.yml")
+                                                          ^^^^^^^^^
+spec/spec_helper.rb:11:76: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+Figaro.application = Figaro::Application.new(environment: "TESTING", path: "config/application.yml")
+                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^
+spec/spec_helper.rb:11:81: C: Line is too long. [100/80]
+Figaro.application = Figaro::Application.new(environment: "TESTING", path: "config/application.yml")
+                                                                                ^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/db_connection_spec.rb:3:1: C: Missing top-level module documentation comment.
+module PostgresDatabase
+^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:3:1: C: Missing top-level module documentation comment.
+module PostgresDatabase
+^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:7:81: C: Line is too long. [93/80]
+      @conn.exec("insert into users(id, username, password) values(DEFAULT, 'foo1', 'bar1')")
+                                                                                ^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:8:81: C: Line is too long. [93/80]
+      @conn.exec("insert into users(id, username, password) values(DEFAULT, 'foo2', 'bar2')")
+                                                                                ^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:9:81: C: Line is too long. [93/80]
+      @conn.exec("insert into users(id, username, password) values(DEFAULT, 'foo3', 'bar3')")
+                                                                                ^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:10:28: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      user_id = @conn.exec("select id from users where username = $1", ['foo1']).field_values('id')[0].to_i
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:10:81: C: Line is too long. [107/80]
+      user_id = @conn.exec("select id from users where username = $1", ['foo1']).field_values('id')[0].to_i
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:11:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      message1 = "this is 1st tweet"
+                 ^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:12:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      message2 = "this is 2nd tweet"
+                 ^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:13:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      message3 = "this is 3rd tweet"
+                 ^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:14:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      @conn.exec("insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP, DEFAULT)", [user_id, message1])
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:14:81: C: Line is too long. [108/80]
+      @conn.exec("insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP, DEFAULT)", [user_id, message1])
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:15:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      @conn.exec("insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP, DEFAULT)", [user_id, message2])
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:15:81: C: Line is too long. [108/80]
+      @conn.exec("insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP, DEFAULT)", [user_id, message2])
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:16:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      @conn.exec("insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP, DEFAULT)", [user_id, message3])
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:16:81: C: Line is too long. [108/80]
+      @conn.exec("insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP, DEFAULT)", [user_id, message3])
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:17:34: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      @user_id_foo2 = @conn.exec("select id from users where username = $1", ['foo2']).field_values('id')[0].to_i
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:17:81: C: Line is too long. [113/80]
+      @user_id_foo2 = @conn.exec("select id from users where username = $1", ['foo2']).field_values('id')[0].to_i
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:18:34: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      @user_id_foo3 = @conn.exec("select id from users where username = $1", ['foo3']).field_values('id')[0].to_i
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:18:81: C: Line is too long. [113/80]
+      @user_id_foo3 = @conn.exec("select id from users where username = $1", ['foo3']).field_values('id')[0].to_i
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:22:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      @conn.exec("delete from tweets")
+                 ^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:23:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      @conn.exec("delete from followers")
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:24:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      @conn.exec("delete from users")
+                 ^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:30:28: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      user_id = @conn.exec("select id from users where username = $1", [ username]).field_values('id')[0].to_i
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:30:73: C: Space inside square brackets detected.
+      user_id = @conn.exec("select id from users where username = $1", [ username]).field_values('id')[0].to_i
+                                                                        ^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:30:81: C: Line is too long. [110/80]
+      user_id = @conn.exec("select id from users where username = $1", [ username]).field_values('id')[0].to_i
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:38:28: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      user_id = @conn.exec("select id from users where username = $1", [username]).field_values('id')[0].to_i
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:38:81: C: Line is too long. [109/80]
+      user_id = @conn.exec("select id from users where username = $1", [username]).field_values('id')[0].to_i
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:39:27: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      result = @conn.exec("select id, tweet, date_and_time, retweet from tweets where user_id = $1",[user_id])
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:39:81: C: Line is too long. [110/80]
+      result = @conn.exec("select id, tweet, date_and_time, retweet from tweets where user_id = $1",[user_id])
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:39:100: C: Space missing after comma.
+      result = @conn.exec("select id, tweet, date_and_time, retweet from tweets where user_id = $1",[user_id])
+                                                                                                   ^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:46:7: W: Useless assignment to variable - [33muser_id[0m.
+      user_id = timeline_storage.get_user_id
+      ^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:48:7: W: Useless assignment to variable - [33muser_id_follower[0m.
+      user_id_follower = @conn.exec("select id from users where username = $1", [follower_username]).field_values('id')[0].to_i
+      ^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:48:37: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      user_id_follower = @conn.exec("select id from users where username = $1", [follower_username]).field_values('id')[0].to_i
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:48:81: C: Line is too long. [127/80]
+      user_id_follower = @conn.exec("select id from users where username = $1", [follower_username]).field_values('id')[0].to_i
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:53:81: C: Line is too long. [90/80]
+    it 'should not able to insert following-follower relationship again with same user' do
+                                                                                ^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:58:38: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      user_id_following = @conn.exec("select id from users where username = $1", [following_username]).field_values('id')[0].to_i
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:58:81: C: Line is too long. [129/80]
+      user_id_following = @conn.exec("select id from users where username = $1", [following_username]).field_values('id')[0].to_i
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:59:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      @conn.exec("insert into followers values($1, $2)", [user_id, user_id_following])
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:59:81: C: Line is too long. [86/80]
+      @conn.exec("insert into followers values($1, $2)", [user_id, user_id_following])
+                                                                                ^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:68:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      @conn.exec("insert into followers values($1, $2)", [user_id, @user_id_foo2])
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:68:81: C: Line is too long. [82/80]
+      @conn.exec("insert into followers values($1, $2)", [user_id, @user_id_foo2])
+                                                                                ^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:69:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      @conn.exec("insert into followers values($1, $2)", [user_id, @user_id_foo3])
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:69:81: C: Line is too long. [82/80]
+      @conn.exec("insert into followers values($1, $2)", [user_id, @user_id_foo3])
+                                                                                ^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:71:33: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      user_id_foo1 = @conn.exec("select follower_id from followers where user_id = $1", [user_id]).field_values('follower_id')[0].to_i
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:71:81: C: Line is too long. [134/80]
+      user_id_foo1 = @conn.exec("select follower_id from followers where user_id = $1", [user_id]).field_values('follower_id')[0].to_i
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:72:28: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      result << @conn.exec("select username from users where id = $1", [user_id_foo1]).field_values('username')[0].to_s
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:72:81: C: Line is too long. [119/80]
+      result << @conn.exec("select username from users where id = $1", [user_id_foo1]).field_values('username')[0].to_s
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:73:33: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      user_id_foo2 = @conn.exec("select follower_id from followers where user_id = $1", [user_id]).field_values('follower_id')[1].to_i
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:73:81: C: Line is too long. [134/80]
+      user_id_foo2 = @conn.exec("select follower_id from followers where user_id = $1", [user_id]).field_values('follower_id')[1].to_i
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:74:28: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      result << @conn.exec("select username from users where id = $1", [user_id_foo2]).field_values('username')[0].to_s
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/timeline_storage_spec.rb:74:81: C: Line is too long. [119/80]
+      result << @conn.exec("select username from users where id = $1", [user_id_foo2]).field_values('username')[0].to_s
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:3:1: C: Missing top-level module documentation comment.
+module PostgresDatabase
+^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:7:81: C: Line is too long. [93/80]
+      @conn.exec("insert into users(id, username, password) values(DEFAULT, 'foo1', 'bar1')")
+                                                                                ^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:8:81: C: Line is too long. [93/80]
+      @conn.exec("insert into users(id, username, password) values(DEFAULT, 'foo2', 'bar2')")
+                                                                                ^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:9:81: C: Line is too long. [93/80]
+      @conn.exec("insert into users(id, username, password) values(DEFAULT, 'foo3', 'bar3')")
+                                                                                ^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:13:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      @conn.exec("delete from tweets")
+                 ^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:14:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      @conn.exec("delete from followers")
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:15:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      @conn.exec("delete from users")
+                 ^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:20:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      username = "foo1"
+                 ^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:21:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      password = "bar1"
+                 ^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:22:29: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      response = @conn.exec("select id, username, password from users where username = $1 and password = $2",[username, password]).field_values('username')[0]
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:22:81: C: Line is too long. [158/80]
+      response = @conn.exec("select id, username, password from users where username = $1 and password = $2",[username, password]).field_values('username')[0]
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:22:109: C: Space missing after comma.
+      response = @conn.exec("select id, username, password from users where username = $1 and password = $2",[username, password]).field_values('username')[0]
+                                                                                                            ^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:28:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      username = "foo1"
+                 ^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:29:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      password = "bar1"
+                 ^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:35:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      username = "foo4"
+                 ^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:36:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      password = "bar1"
+                 ^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:42:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      username = "foo1"
+                 ^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:43:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      password = "bar1"
+                 ^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:44:7: W: Useless assignment to variable - [33muser[0m. Did you mean [33muser_id[0m?
+      user = TwichBlade::User.new(username, password).login
+      ^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:46:17: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      message = "this spec tweet!!!"
+                ^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:48:28: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      user_id = @conn.exec("select id from users where username = $1",[username]).field_values('id')[0].to_i
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:48:70: C: Space missing after comma.
+      user_id = @conn.exec("select id from users where username = $1",[username]).field_values('id')[0].to_i
+                                                                     ^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:48:81: C: Line is too long. [108/80]
+      user_id = @conn.exec("select id from users where username = $1",[username]).field_values('id')[0].to_i
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:49:29: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      response = @conn.exec("insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP, DEFAULT)",[user_id, message])
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:49:81: C: Line is too long. [117/80]
+      response = @conn.exec("insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP, DEFAULT)",[user_id, message])
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:49:98: C: Space missing after comma.
+      response = @conn.exec("insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP, DEFAULT)",[user_id, message])
+                                                                                                 ^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:54:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      username = "foo1"
+                 ^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:55:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      password = "bar1"
+                 ^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:56:7: W: Useless assignment to variable - [33muser[0m. Did you mean [33muser_id[0m?
+      user = TwichBlade::User.new(username, password).login
+      ^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:58:17: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      message = "this is spec tweet"
+                ^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:59:28: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      user_id = @conn.exec("select id from users where username = $1",[username]).field_values('id')[0].to_i
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:59:70: C: Space missing after comma.
+      user_id = @conn.exec("select id from users where username = $1",[username]).field_values('id')[0].to_i
+                                                                     ^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:59:81: C: Line is too long. [108/80]
+      user_id = @conn.exec("select id from users where username = $1",[username]).field_values('id')[0].to_i
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:60:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      @conn.exec("insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP, DEFAULT)",[user_id, message]);
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:60:81: C: Line is too long. [107/80]
+      @conn.exec("insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP, DEFAULT)",[user_id, message]);
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:60:87: C: Space missing after comma.
+      @conn.exec("insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP, DEFAULT)",[user_id, message]);
+                                                                                      ^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:60:107: C: Do not use semicolons to terminate expressions.
+      @conn.exec("insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP, DEFAULT)",[user_id, message]);
+                                                                                                          ^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:61:29: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      tweet_id = @conn.exec("select id from tweets where user_id = $1",[user_id]).field_values('id')[0].to_i
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:61:71: C: Space missing after comma.
+      tweet_id = @conn.exec("select id from tweets where user_id = $1",[user_id]).field_values('id')[0].to_i
+                                                                      ^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:61:81: C: Line is too long. [108/80]
+      tweet_id = @conn.exec("select id from tweets where user_id = $1",[user_id]).field_values('id')[0].to_i
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:62:33: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      id_and_tweet = @conn.exec("select user_id, tweet from tweets where id = $1",[tweet_id])
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:62:81: C: Line is too long. [93/80]
+      id_and_tweet = @conn.exec("select user_id, tweet from tweets where id = $1",[tweet_id])
+                                                                                ^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:62:82: C: Space missing after comma.
+      id_and_tweet = @conn.exec("select user_id, tweet from tweets where id = $1",[tweet_id])
+                                                                                 ^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:63:29: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      username = @conn.exec("select id,username from users where id = $1",[id_and_tweet.field_values('user_id')[0].to_i]).field_values('username')[0].to_s
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:63:74: C: Space missing after comma.
+      username = @conn.exec("select id,username from users where id = $1",[id_and_tweet.field_values('user_id')[0].to_i]).field_values('username')[0].to_s
+                                                                         ^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:63:81: C: Line is too long. [154/80]
+      username = @conn.exec("select id,username from users where id = $1",[id_and_tweet.field_values('user_id')[0].to_i]).field_values('username')[0].to_s
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:64:29: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      response = @conn.exec("insert into tweets values (DEFAULT, $1, $2, LOCALTIMESTAMP, $3)",[user_id, id_and_tweet.field_values('tweet')[0].to_s, username])
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:64:81: C: Line is too long. [158/80]
+      response = @conn.exec("insert into tweets values (DEFAULT, $1, $2, LOCALTIMESTAMP, $3)",[user_id, id_and_tweet.field_values('tweet')[0].to_s, username])
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/database_scipts_spec/user_storage_spec.rb:64:94: C: Space missing after comma.
+      response = @conn.exec("insert into tweets values (DEFAULT, $1, $2, LOCALTIMESTAMP, $3)",[user_id, id_and_tweet.field_values('tweet')[0].to_s, username])
+                                                                                             ^
+spec/twich_blade/home_page_interface_spec.rb:3:1: C: Missing top-level module documentation comment.
+module TwichBlade
+^^^^^^
+spec/twich_blade/home_page_interface_spec.rb:11:7: W: Useless assignment to variable - [33mdbname[0m.
+      dbname = "test_twichblade"
+      ^^^^^^
+spec/twich_blade/home_page_interface_spec.rb:11:16: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      dbname = "test_twichblade"
+               ^^^^^^^^^^^^^^^^^
+spec/twich_blade/home_page_interface_spec.rb:13:13: C: Space missing to the left of {.
+      expect{ home_page_interface.display_home_page }.to output(/  1 My Timeline\n  2 tweet\n  3 Other's  Timeline\n  4 Retweet\n  5 Follow\n  6 My Wall\n  7 logout\nEnter your choice : /).to_stdout
+            ^
+spec/twich_blade/home_page_interface_spec.rb:13:81: C: Line is too long. [198/80]
+      expect{ home_page_interface.display_home_page }.to output(/  1 My Timeline\n  2 tweet\n  3 Other's  Timeline\n  4 Retweet\n  5 Follow\n  6 My Wall\n  7 logout\nEnter your choice : /).to_stdout
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/home_page_interface_spec.rb:19:50: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      allow(Kernel).to receive(:gets).and_return("7")
+                                                 ^^^
+spec/twich_blade/home_page_interface_spec.rb:20:47: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      @home_page_interface.display(@conn.exec("select username, password from users"))
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/home_page_interface_spec.rb:20:81: C: Line is too long. [86/80]
+      @home_page_interface.display(@conn.exec("select username, password from users"))
+                                                                                ^^^^^^
+spec/twich_blade/home_page_interface_spec.rb:24:16: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      choice = "1"
+               ^^^
+spec/twich_blade/home_page_interface_spec.rb:30:16: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      choice = "2"
+               ^^^
+spec/twich_blade/home_page_interface_spec.rb:36:16: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      choice = "3"
+               ^^^
+spec/twich_blade/home_page_interface_spec.rb:42:16: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      choice = "4"
+               ^^^
+spec/twich_blade/home_page_interface_spec.rb:48:16: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      choice = "5"
+               ^^^
+spec/twich_blade/home_page_interface_spec.rb:54:16: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      choice = "6"
+               ^^^
+spec/twich_blade/home_page_interface_spec.rb:60:16: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      choice = "12"
+               ^^^^
+spec/twich_blade/login_interface_spec.rb:3:1: C: Missing top-level module documentation comment.
+module TwichBlade
+^^^^^^
+spec/twich_blade/login_interface_spec.rb:7:8: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    it "unauthorised user" do
+       ^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/login_interface_spec.rb:14:8: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    it "authorised user" do
+       ^^^^^^^^^^^^^^^^^
+spec/twich_blade/register_interface_spec.rb:3:1: C: Missing top-level module documentation comment.
+module TwichBlade
+^^^^^^
+spec/twich_blade/register_interface_spec.rb:5:13: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+    context "validate?" do
+            ^^^^^^^^^^^
+spec/twich_blade/register_interface_spec.rb:6:10: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      it "should be able to validate the username" do
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/register_interface_spec.rb:7:9: W: Useless assignment to variable - [33mdbname[0m.
+        dbname = "test_twichblade"
+        ^^^^^^
+spec/twich_blade/register_interface_spec.rb:7:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        dbname = "test_twichblade"
+                 ^^^^^^^^^^^^^^^^^
+spec/twich_blade/register_interface_spec.rb:9:52: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        allow(Kernel).to receive(:gets).and_return("foo", "asdasasdsasds")
+                                                   ^^^^^
+spec/twich_blade/register_interface_spec.rb:9:59: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        allow(Kernel).to receive(:gets).and_return("foo", "asdasasdsasds")
+                                                          ^^^^^^^^^^^^^^^
+spec/twich_blade/register_interface_spec.rb:14:10: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      it "should be able to validate the null username" do
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/register_interface_spec.rb:15:9: W: Useless assignment to variable - [33mdbname[0m.
+        dbname = "test_twichblade"
+        ^^^^^^
+spec/twich_blade/register_interface_spec.rb:15:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        dbname = "test_twichblade"
+                 ^^^^^^^^^^^^^^^^^
+spec/twich_blade/register_interface_spec.rb:17:52: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        allow(Kernel).to receive(:gets).and_return("")
+                                                   ^^
+spec/twich_blade/register_interface_spec.rb:22:10: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      it "should be able to validate the null password" do
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/register_interface_spec.rb:23:9: W: Useless assignment to variable - [33mdbname[0m.
+        dbname = "test_twichblade"
+        ^^^^^^
+spec/twich_blade/register_interface_spec.rb:23:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        dbname = "test_twichblade"
+                 ^^^^^^^^^^^^^^^^^
+spec/twich_blade/register_interface_spec.rb:25:52: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        allow(Kernel).to receive(:gets).and_return("foo", "")
+                                                   ^^^^^
+spec/twich_blade/register_interface_spec.rb:25:59: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        allow(Kernel).to receive(:gets).and_return("foo", "")
+                                                          ^^
+spec/twich_blade/register_interface_spec.rb:30:10: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      it "should be able to validate the password" do
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/register_interface_spec.rb:31:9: W: Useless assignment to variable - [33mdbname[0m.
+        dbname = "test_twichblade"
+        ^^^^^^
+spec/twich_blade/register_interface_spec.rb:31:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        dbname = "test_twichblade"
+                 ^^^^^^^^^^^^^^^^^
+spec/twich_blade/register_interface_spec.rb:33:52: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        allow(Kernel).to receive(:gets).and_return("foo", "barbar1234")
+                                                   ^^^^^
+spec/twich_blade/register_interface_spec.rb:33:59: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        allow(Kernel).to receive(:gets).and_return("foo", "barbar1234")
+                                                          ^^^^^^^^^^^^
+spec/twich_blade/register_interface_spec.rb:38:10: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      it "should be able to validate the username and password length validaiton" do
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/register_interface_spec.rb:38:81: C: Line is too long. [84/80]
+      it "should be able to validate the username and password length validaiton" do
+                                                                                ^^^^
+spec/twich_blade/register_interface_spec.rb:39:9: W: Useless assignment to variable - [33mdbname[0m.
+        dbname = "test_twichblade"
+        ^^^^^^
+spec/twich_blade/register_interface_spec.rb:39:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        dbname = "test_twichblade"
+                 ^^^^^^^^^^^^^^^^^
+spec/twich_blade/register_interface_spec.rb:41:52: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        allow(Kernel).to receive(:gets).and_return("foo", "bar")
+                                                   ^^^^^
+spec/twich_blade/register_interface_spec.rb:41:59: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        allow(Kernel).to receive(:gets).and_return("foo", "bar")
+                                                          ^^^^^
+spec/twich_blade/register_interface_spec.rb:46:10: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      it "should be able to validate the username and password length validaiton" do
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/register_interface_spec.rb:46:81: C: Line is too long. [84/80]
+      it "should be able to validate the username and password length validaiton" do
+                                                                                ^^^^
+spec/twich_blade/register_interface_spec.rb:47:9: W: Useless assignment to variable - [33mdbname[0m.
+        dbname = "test_twichblade"
+        ^^^^^^
+spec/twich_blade/register_interface_spec.rb:47:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        dbname = "test_twichblade"
+                 ^^^^^^^^^^^^^^^^^
+spec/twich_blade/register_interface_spec.rb:49:52: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        allow(Kernel).to receive(:gets).and_return("foo", "foobar12345")
+                                                   ^^^^^
+spec/twich_blade/register_interface_spec.rb:49:59: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        allow(Kernel).to receive(:gets).and_return("foo", "foobar12345")
+                                                          ^^^^^^^^^^^^^
+spec/twich_blade/timeline_interface_spec.rb:3:1: C: Missing top-level module documentation comment.
+module TwichBlade
+^^^^^^
+spec/twich_blade/timeline_interface_spec.rb:8:81: C: Line is too long. [93/80]
+      @conn.exec("insert into users(id, username, password) values(DEFAULT, 'foo1', 'bar1')")
+                                                                                ^^^^^^^^^^^^^
+spec/twich_blade/timeline_interface_spec.rb:9:28: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      user_id = @conn.exec("select id from users where username = $1", ['foo1']).field_values('id')[0].to_i
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_interface_spec.rb:9:81: C: Line is too long. [107/80]
+      user_id = @conn.exec("select id from users where username = $1", ['foo1']).field_values('id')[0].to_i
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_interface_spec.rb:10:16: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      tweets = "tweet message !!!"
+               ^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_interface_spec.rb:11:30: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      @response = @conn.exec("insert into tweets values(DEFAULT, $1, $2, DEFAULT, $3)", [user_id, tweets, 'foo1'])
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_interface_spec.rb:11:81: C: Line is too long. [114/80]
+      @response = @conn.exec("insert into tweets values(DEFAULT, $1, $2, DEFAULT, $3)", [user_id, tweets, 'foo1'])
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_interface_spec.rb:12:28: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      @result = @conn.exec("select id, tweet, date_and_time, retweet from tweets where user_id = $1", [user_id])
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_interface_spec.rb:12:81: C: Line is too long. [112/80]
+      @result = @conn.exec("select id, tweet, date_and_time, retweet from tweets where user_id = $1", [user_id])
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_interface_spec.rb:16:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      @conn.exec("delete from tweets")
+                 ^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_interface_spec.rb:17:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      @conn.exec("delete from users")
+                 ^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_interface_spec.rb:22:81: C: Line is too long. [96/80]
+      allow_any_instance_of(TimelineInterface).to receive(:display_header).with("View Timeline")
+                                                                                ^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_interface_spec.rb:22:81: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      allow_any_instance_of(TimelineInterface).to receive(:display_header).with("View Timeline")
+                                                                                ^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_interface_spec.rb:23:81: C: Line is too long. [92/80]
+      allow_any_instance_of(TimelineInterface).to receive(:username_validation_and_timeline)
+                                                                                ^^^^^^^^^^^^
+spec/twich_blade/timeline_interface_spec.rb:29:78: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      allow_any_instance_of(TimelineInterface).to receive(:input).and_return("username")
+                                                                             ^^^^^^^^^^
+spec/twich_blade/timeline_interface_spec.rb:29:81: C: Line is too long. [88/80]
+      allow_any_instance_of(TimelineInterface).to receive(:input).and_return("username")
+                                                                                ^^^^^^^^
+spec/twich_blade/timeline_interface_spec.rb:31:81: C: Line is too long. [91/80]
+      expect_any_instance_of(TimelineInterface).to receive(:display_timeline).with(@result)
+                                                                                ^^^^^^^^^^^
+spec/twich_blade/timeline_interface_spec.rb:36:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      username = "foo1"
+                 ^^^^^^
+spec/twich_blade/timeline_interface_spec.rb:44:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      username = "foo1"
+                 ^^^^^^
+spec/twich_blade/timeline_interface_spec.rb:46:81: C: Line is too long. [92/80]
+      allow_any_instance_of(TimelineInterface).to receive(:display_timeline).with(@response)
+                                                                                ^^^^^^^^^^^^
+spec/twich_blade/timeline_interface_spec.rb:51:81: C: Line is too long. [88/80]
+      allow_any_instance_of(TimelineInterface).to receive(:display_tweets).with(@result)
+                                                                                ^^^^^^^^
+spec/twich_blade/timeline_spec.rb:3:1: C: Missing top-level module documentation comment.
+module TwichBlade
+^^^^^^
+spec/twich_blade/timeline_spec.rb:7:81: C: Line is too long. [97/80]
+      @conn.exec("insert into users(id, username, password) values(DEFAULT, 'foo1', 'password')")
+                                                                                ^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:8:30: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      response1 = @conn.exec("select id from users where username = $1", ['foo1'])
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:8:81: C: Line is too long. [82/80]
+      response1 = @conn.exec("select id from users where username = $1", ['foo1'])
+                                                                                ^^
+spec/twich_blade/timeline_spec.rb:9:81: C: Line is too long. [97/80]
+      @conn.exec("insert into users(id, username, password) values(DEFAULT, 'foo2', 'password')")
+                                                                                ^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:10:7: W: Useless assignment to variable - [33mresponse2[0m. Did you mean [33mresponse1[0m?
+      response2 = @conn.exec("select id from users where username = $1", ['foo2'])
+      ^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:10:30: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      response2 = @conn.exec("select id from users where username = $1", ['foo2'])
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:10:81: C: Line is too long. [82/80]
+      response2 = @conn.exec("select id from users where username = $1", ['foo2'])
+                                                                                ^^
+spec/twich_blade/timeline_spec.rb:13:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      @conn.exec("insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP)", [response1.field_values('id')[0].to_i, tweet_message1])
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:13:81: C: Line is too long. [134/80]
+      @conn.exec("insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP)", [response1.field_values('id')[0].to_i, tweet_message1])
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:14:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      @conn.exec("insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP)", [response1.field_values('id')[0].to_i, tweet_message2])
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:14:81: C: Line is too long. [134/80]
+      @conn.exec("insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP)", [response1.field_values('id')[0].to_i, tweet_message2])
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:18:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      @conn.exec("delete from tweets")
+                 ^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:19:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      @conn.exec("delete from followers")
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:20:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      @conn.exec("delete from users")
+                 ^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:26:20: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        username = "foo1"
+                   ^^^^^^
+spec/twich_blade/timeline_spec.rb:28:30: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        user_id = @conn.exec("select id from users where username = $1", [username])
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:28:81: C: Line is too long. [84/80]
+        user_id = @conn.exec("select id from users where username = $1", [username])
+                                                                                ^^^^
+spec/twich_blade/timeline_spec.rb:29:31: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        response = @conn.exec("select id, tweet, date_and_time from tweets where user_id = $1",[user_id.field_values('id')[0].to_i])
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:29:81: C: Line is too long. [132/80]
+        response = @conn.exec("select id, tweet, date_and_time from tweets where user_id = $1",[user_id.field_values('id')[0].to_i])
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:29:95: C: Space missing after comma.
+        response = @conn.exec("select id, tweet, date_and_time from tweets where user_id = $1",[user_id.field_values('id')[0].to_i])
+                                                                                              ^
+spec/twich_blade/timeline_spec.rb:34:20: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        username = "foo2"
+                   ^^^^^^
+spec/twich_blade/timeline_spec.rb:36:30: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        user_id = @conn.exec("select id from users where username = $1", [username])
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:36:81: C: Line is too long. [84/80]
+        user_id = @conn.exec("select id from users where username = $1", [username])
+                                                                                ^^^^
+spec/twich_blade/timeline_spec.rb:37:31: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        response = @conn.exec("select id, tweet, date_and_time from tweets where user_id = $1",[user_id.field_values('id')[0].to_i])
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:37:81: C: Line is too long. [132/80]
+        response = @conn.exec("select id, tweet, date_and_time from tweets where user_id = $1",[user_id.field_values('id')[0].to_i])
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:37:95: C: Space missing after comma.
+        response = @conn.exec("select id, tweet, date_and_time from tweets where user_id = $1",[user_id.field_values('id')[0].to_i])
+                                                                                              ^
+spec/twich_blade/timeline_spec.rb:44:20: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        username = "foo1"
+                   ^^^^^^
+spec/twich_blade/timeline_spec.rb:46:30: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        user_id = @conn.exec("select id from users where username = $1", [username]).field_values('id')[0].to_i
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:46:81: C: Line is too long. [111/80]
+        user_id = @conn.exec("select id from users where username = $1", [username]).field_values('id')[0].to_i
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:51:20: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        username = "foo2"
+                   ^^^^^^
+spec/twich_blade/timeline_spec.rb:53:30: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        user_id = @conn.exec("select id from users where username = $1", [username]).field_values('id')[0].to_i
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:53:81: C: Line is too long. [111/80]
+        user_id = @conn.exec("select id from users where username = $1", [username]).field_values('id')[0].to_i
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:60:20: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        username = "foo1"
+                   ^^^^^^
+spec/twich_blade/timeline_spec.rb:61:29: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        follower_username = "foo2"
+                            ^^^^^^
+spec/twich_blade/timeline_spec.rb:63:9: W: Useless assignment to variable - [33muser_id[0m.
+        user_id = @conn.exec("select id from users where username = $1", [username]).field_values('id')[0].to_i
+        ^^^^^^^
+spec/twich_blade/timeline_spec.rb:63:30: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        user_id = @conn.exec("select id from users where username = $1", [username]).field_values('id')[0].to_i
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:63:81: C: Line is too long. [111/80]
+        user_id = @conn.exec("select id from users where username = $1", [username]).field_values('id')[0].to_i
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:64:9: W: Useless assignment to variable - [33muser_id_follower[0m.
+        user_id_follower = @conn.exec("select id from users where username = $1", [follower_username]).field_values('id')[0].to_i
+        ^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:64:39: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        user_id_follower = @conn.exec("select id from users where username = $1", [follower_username]).field_values('id')[0].to_i
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:64:81: C: Line is too long. [129/80]
+        user_id_follower = @conn.exec("select id from users where username = $1", [follower_username]).field_values('id')[0].to_i
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:69:20: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        username = "foo2"
+                   ^^^^^^
+spec/twich_blade/timeline_spec.rb:70:29: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        follower_username = "foo1"
+                            ^^^^^^
+spec/twich_blade/timeline_spec.rb:72:9: W: Useless assignment to variable - [33muser_id[0m.
+        user_id = @conn.exec("select id from users where username = $1", [username]).field_values('id')[0].to_i
+        ^^^^^^^
+spec/twich_blade/timeline_spec.rb:72:30: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        user_id = @conn.exec("select id from users where username = $1", [username]).field_values('id')[0].to_i
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:72:81: C: Line is too long. [111/80]
+        user_id = @conn.exec("select id from users where username = $1", [username]).field_values('id')[0].to_i
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:73:9: W: Useless assignment to variable - [33muser_id_follower[0m.
+        user_id_follower = @conn.exec("select id from users where username = $1", [follower_username]).field_values('id')[0].to_i
+        ^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:73:39: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        user_id_follower = @conn.exec("select id from users where username = $1", [follower_username]).field_values('id')[0].to_i
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:73:81: C: Line is too long. [129/80]
+        user_id_follower = @conn.exec("select id from users where username = $1", [follower_username]).field_values('id')[0].to_i
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:79:81: C: Line is too long. [90/80]
+      it 'should be able to display my wall with all my following with username = foo1' do
+                                                                                ^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:83:30: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        user_id = @conn.exec("select id from users where username = $1", [username]).field_values('id')[0].to_i
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:83:81: C: Line is too long. [111/80]
+        user_id = @conn.exec("select id from users where username = $1", [username]).field_values('id')[0].to_i
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:84:35: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        followers_id = @conn.exec("select id from users where username = $1", [follower_username]).field_values('id')[0].to_i
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:84:81: C: Line is too long. [125/80]
+        followers_id = @conn.exec("select id from users where username = $1", [follower_username]).field_values('id')[0].to_i
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:85:20: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        @conn.exec("insert into followers values($1, $2)", [user_id, followers_id])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:85:81: C: Line is too long. [83/80]
+        @conn.exec("insert into followers values($1, $2)", [user_id, followers_id])
+                                                                                ^^^
+spec/twich_blade/timeline_spec.rb:89:81: C: Line is too long. [90/80]
+      it 'should be able to display my wall with all my following with username = foo2' do
+                                                                                ^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:93:30: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        user_id = @conn.exec("select id from users where username = $1", [username]).field_values('id')[0].to_i
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:93:81: C: Line is too long. [111/80]
+        user_id = @conn.exec("select id from users where username = $1", [username]).field_values('id')[0].to_i
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:94:35: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        followers_id = @conn.exec("select id from users where username = $1", [follower_username]).field_values('id')[0].to_i
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:94:81: C: Line is too long. [125/80]
+        followers_id = @conn.exec("select id from users where username = $1", [follower_username]).field_values('id')[0].to_i
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:95:20: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        @conn.exec("insert into followers values($1, $2)", [user_id, followers_id])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/timeline_spec.rb:95:81: C: Line is too long. [83/80]
+        @conn.exec("insert into followers values($1, $2)", [user_id, followers_id])
+                                                                                ^^^
+spec/twich_blade/twichblade_cli_spec.rb:3:1: C: Missing top-level module documentation comment.
+module TwichBlade
+^^^^^^
+spec/twich_blade/twichblade_cli_spec.rb:7:52: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        allow(Kernel).to receive(:gets).and_return("twichblade")
+                                                   ^^^^^^^^^^^^
+spec/twich_blade/twichblade_cli_spec.rb:9:45: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        expect(twich_blade_cli.input).to eq("twichblade")
+                                            ^^^^^^^^^^^^
+spec/twich_blade/twichblade_cli_spec.rb:16:15: C: Space missing to the left of {.
+        expect{ twich_blade_cli.error_message }.to output(/\tPlease Enter the correct choice : /).to_stdout
+              ^
+spec/twich_blade/twichblade_cli_spec.rb:16:81: C: Line is too long. [107/80]
+        expect{ twich_blade_cli.error_message }.to output(/\tPlease Enter the correct choice : /).to_stdout
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/user_interface_spec.rb:3:1: C: Missing top-level module documentation comment.
+module TwichBlade
+^^^^^^
+spec/twich_blade/user_interface_spec.rb:7:52: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        allow(Kernel).to receive(:gets).and_return("twichblade")
+                                                   ^^^^^^^^^^^^
+spec/twich_blade/user_interface_spec.rb:9:44: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        expect(user_interface.input).to eq("twichblade")
+                                           ^^^^^^^^^^^^
+spec/twich_blade/user_interface_spec.rb:15:13: C: Space missing to the left of {.
+      expect{ user_interface.display_index_page }.to output(/-------------------------------\n\tWelcome to TwichBlade\t\n-------------------------------\n\t1   SignUp\n\t2   SignIn\n\t3   Timeline\n\t4   Exit\nEnter your Choice  :/).to_stdout
+            ^
+spec/twich_blade/user_interface_spec.rb:15:81: C: Line is too long. [242/80]
+      expect{ user_interface.display_index_page }.to output(/-------------------------------\n\tWelcome to TwichBlade\t\n-------------------------------\n\t1   SignUp\n\t2   SignIn\n\t3   Timeline\n\t4   Exit\nEnter your Choice  :/).to_stdout
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/user_interface_spec.rb:19:14: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      page = "SignIn"
+             ^^^^^^^^
+spec/twich_blade/user_interface_spec.rb:21:13: C: Space missing to the left of {.
+      expect{ user_interface.display_header(page) }.to output(/--------------------------------\n   Welcome to #{page} page\n--------------------------------/).to_stdout
+            ^
+spec/twich_blade/user_interface_spec.rb:21:81: C: Line is too long. [169/80]
+      expect{ user_interface.display_header(page) }.to output(/--------------------------------\n   Welcome to #{page} page\n--------------------------------/).to_stdout
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/user_interface_spec.rb:25:50: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      allow(Kernel).to receive(:gets).and_return("username", "password")
+                                                 ^^^^^^^^^^
+spec/twich_blade/user_interface_spec.rb:25:62: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      allow(Kernel).to receive(:gets).and_return("username", "password")
+                                                             ^^^^^^^^^^
+spec/twich_blade/user_interface_spec.rb:27:13: C: Space missing to the left of {.
+      expect{ user_interface.take_user_input }.to output(/Enter UserName : Enter Password : /).to_stdout
+            ^
+spec/twich_blade/user_interface_spec.rb:27:81: C: Line is too long. [104/80]
+      expect{ user_interface.take_user_input }.to output(/Enter UserName : Enter Password : /).to_stdout
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/user_interface_spec.rb:32:13: C: Space missing to the left of {.
+      expect{ user_interface.error_message }.to output(/\tPlease Enter the correct choice : /).to_stdout
+            ^
+spec/twich_blade/user_interface_spec.rb:32:81: C: Line is too long. [104/80]
+      expect{ user_interface.error_message }.to output(/\tPlease Enter the correct choice : /).to_stdout
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/user_interface_spec.rb:37:13: C: Space missing to the left of {.
+      expect{ user_interface.connection_error }.to output(/Something went wrong!!! please try again/).to_stdout
+            ^
+spec/twich_blade/user_interface_spec.rb:37:81: C: Line is too long. [111/80]
+      expect{ user_interface.connection_error }.to output(/Something went wrong!!! please try again/).to_stdout
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/user_spec.rb:3:1: C: Missing top-level module documentation comment.
+module TwichBlade
+^^^^^^
+spec/twich_blade/user_spec.rb:6:26: C: Use the new Ruby 1.9 hash syntax.
+      @conn = PG.connect(:dbname => 'test_twichblade')
+                         ^^^^^^^^^^
+spec/twich_blade/user_spec.rb:7:81: C: Line is too long. [93/80]
+      @conn.exec("insert into users(id, username, password) values(DEFAULT, 'foo1', 'bar1')")
+                                                                                ^^^^^^^^^^^^^
+spec/twich_blade/user_spec.rb:8:81: C: Line is too long. [93/80]
+      @conn.exec("insert into users(id, username, password) values(DEFAULT, 'foo2', 'bar2')")
+                                                                                ^^^^^^^^^^^^^
+spec/twich_blade/user_spec.rb:9:81: C: Line is too long. [93/80]
+      @conn.exec("insert into users(id, username, password) values(DEFAULT, 'foo3', 'bar3')")
+                                                                                ^^^^^^^^^^^^^
+spec/twich_blade/user_spec.rb:13:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      @conn.exec("delete from tweets")
+                 ^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/user_spec.rb:14:18: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+      @conn.exec("delete from users")
+                 ^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/user_spec.rb:52:81: C: Line is too long. [85/80]
+        expect(user.re_tweet(response.field_values('id')[0].to_i, tweet_id)).to eq(1)
+                                                                                ^^^^^
+spec/twich_blade/user_spec.rb:77:31: C: Prefer single-quoted strings when you don't need string interpolation or special symbols.
+        response = @conn.exec("select username, password from users where username = $1 and password = $2",[username, password])
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/user_spec.rb:77:81: C: Line is too long. [128/80]
+        response = @conn.exec("select username, password from users where username = $1 and password = $2",[username, password])
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/twich_blade/user_spec.rb:77:107: C: Space missing after comma.
+        response = @conn.exec("select username, password from users where username = $1 and password = $2",[username, password])
+                                                                                                          ^
+
+28 files inspected, 442 offenses detected
