@@ -85,14 +85,17 @@ module TwichBlade
 
     def my_wall
       following_list = Timeline.new(@user_info).followings
+      followings_wall_display(following_list)
+    end
+
+    private
+    def following_wall_display(following_list)
       puts "\t\t\t MY WALL "
       timeline_interface = TimelineInterface.new
       following_list.each do |following_username|
         timeline_interface.process(following_username)
       end
     end
-
-    private
     def tweet_id_failure_message
       puts "Tweet Id doesn't exist!!!  Please try again"
     end

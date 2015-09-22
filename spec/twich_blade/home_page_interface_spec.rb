@@ -137,5 +137,12 @@ module TwichBlade
         @home_page_interface.re_tweet
       end
     end
+
+    it 'should be able to display wall' do
+      following_username = 'foo'
+      allow_any_instance_of(Timeline).to receive(:followings).and_return(following_username)
+      expect_any_instance_of(HomePageInterface).to receive(:followings_wall_display).with(following_username)
+      @home_page_interface.my_wall
+    end
   end
 end
