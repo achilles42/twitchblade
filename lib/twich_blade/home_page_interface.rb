@@ -6,7 +6,7 @@ module TwichBlade
       while true
         display_home_page
         choice = input
-        if choice == "7"
+        if choice == '7'
           break
         else
           process(choice)
@@ -37,25 +37,20 @@ module TwichBlade
       end
     end
 
-    private
     def follow
       print "Enter Username : "
       username = input
       response = PostgresDatabase::UserStorage.new.username_validate(username)
       if response == true
-        puts "\tUser doesn't Exists"
+        error_message
       else
-        response1 = Timeline.new(@user_info).follow(username)
-        if response1 == nil
-          puts "\t You are already following #{username}"
-        else
-          puts "\t You are following #{username}"
-        end
+        response_timeline = Timeline.new(@user_info).follow(username)
+        follow_status(response_timeline, username)
       end
     end
 
     def my_timeline
-      puts "------------- * My Timeline * ----------------"
+      print_timeline
       tweets = Timeline.new(@user_info).show
       TimelineInterface.new.display_timeline(tweets)
     end
@@ -69,7 +64,7 @@ module TwichBlade
       tweet_message = input.to_s
       if tweet_message.length < 140
         User.new(@user_info, "").tweet(tweet_message)
-        puts "\tYour Tweet was posted!"
+        puts "\tYour Tweet was posted!!!"
       else
         puts "Your tweet message size must be less 140 char."
       end
@@ -98,6 +93,23 @@ module TwichBlade
       following_list.each do |following_username|
         timeline_interface.process(following_username)
       end
+    end
+
+    private
+    def follow_status(response_timeline, username)
+      if response_timeline == nil
+        puts "\t You are already following #{username}"
+      else
+        puts "\t You are following #{username}"
+      end
+    end
+
+    def error_messege
+      puts "\tUser doesn't Exists"
+    end
+
+    def print_timeline
+      puts "------------- * My Timeline * ----------------"
     end
   end
 end

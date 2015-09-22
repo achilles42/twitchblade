@@ -61,5 +61,32 @@ module TwichBlade
       allow_any_instance_of(HomePageInterface).to receive(:error_message)
       @home_page_interface.process(choice)
     end
+
+    context 'follow' do
+      it 'should give error message when username is invalid' do
+        username = 'foo'
+        allow_any_instance_of(HomePageInterface).to receive(:input).and_return(username)
+        allow_any_instance_of(PostgresDatabase::UserStorage).to receive(:username_validate).with(username).and_return(true)
+        expect_any_instance_of(HomePageInterface).to receive(:error_message)
+        @home_page_interface.follow
+      end
+
+      it 'should give not error message when username is invalid' do
+        username = 'foo'
+        allow_any_instance_of(HomePageInterface).to receive(:input).and_return(username)
+        allow_any_instance_of(PostgresDatabase::UserStorage).to receive(:username_validate).with(username).and_return(false)
+        allow_any_instance_of(Timeline).to receive(:follow).with(username).and_return(nil)
+        expect_any_instance_of(HomePageInterface).to receive(:follow_status).with(nil, username)
+        @home_page_interface.follow
+      end
+    end
+
+    it 'should display my Timeline' do
+      allow_any_instance_of(HomePageInterface).to receive(:print_timeline)
+      tweet = "this is tweet"
+      allow_any_instance_of(Timeline).to receive(:show).and_return(tweet)
+      expect_any_instance_of(TimelineInterface).to receive(:display_timeline).with(tweet)
+      @home_page_interface.my_timeline
+    end
   end
 end
