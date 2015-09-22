@@ -54,11 +54,22 @@ module TwichBlade
       end
 
       context 'display' do
-        it 'should not be able to allow user to register without proper username and password' do
+        it 'should not allow user to register without proper username and password' do
           allow_any_instance_of(RegisterInterface).to receive(:display_header).with("SignUp")
           allow_any_instance_of(RegisterInterface).to receive(:take_user_input)
           allow_any_instance_of(RegisterInterface).to receive(:validate?).and_return(false)
           allow_any_instance_of(RegisterInterface).to receive(:validate_error)
+          allow_any_instance_of(RegisterInterface).to receive(:display_index_page)
+          @register_interface.display
+        end
+
+        it 'should not allow user to register when some database connection problem' do
+          allow_any_instance_of(RegisterInterface).to receive(:display_header).with("SignUp")
+          allow_any_instance_of(RegisterInterface).to receive(:take_user_input)
+          allow_any_instance_of(RegisterInterface).to receive(:validate?).and_return(true)
+          allow_any_instance_of(User).to receive(:register).and_return(:ERROR)
+          allow_any_instance_of(RegisterInterface).to receive(:connection_error)
+          allow_any_instance_of(RegisterInterface).to receive(:display_index_page)
           @register_interface.display
         end
       end
