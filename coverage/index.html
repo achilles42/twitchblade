@@ -14,26 +14,26 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-09-23T09:58:50+05:30">2015-09-23T09:58:50+05:30</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-09-23T12:58:10+05:30">2015-09-23T12:58:10+05:30</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">93.89%</span></span>
+    (<span class="covered_percent"><span class="green">93.91%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.46
+         2.75
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>22</b> files in total.
-    <b>950</b> relevant lines. 
-    <span class="green"><b>892</b> lines covered</span> and
+    <b>953</b> relevant lines. 
+    <span class="green"><b>895</b> lines covered</span> and
     <span class="red"><b>58</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -62,12 +62,12 @@
       
       <tr>
         <td class="strong"><a href="#ae59dbfbced807b009503b367301abd3b7ac0319" class="src_link" title="lib/twich_blade/database_scripts/db_connection.rb">lib/twich_blade/database_scripts/db_connection.rb</a></td>
-        <td class="red strong">75.0 %</td>
-        <td>21</td>
+        <td class="red strong">80.0 %</td>
+        <td>24</td>
+        <td>15</td>
         <td>12</td>
-        <td>9</td>
         <td>3</td>
-        <td>33.6</td>
+        <td>46.1</td>
       </tr>
       
       <tr>
@@ -409,10 +409,10 @@
         <div class="source_table" id="ae59dbfbced807b009503b367301abd3b7ac0319">
   <div class="header">
     <h3>lib/twich_blade/database_scripts/db_connection.rb</h3>
-    <h4><span class="red">75.0 %</span> covered</h4>
+    <h4><span class="red">80.0 %</span> covered</h4>
     <div>
-      <b>12</b> relevant lines. 
-      <span class="green"><b>9</b> lines covered</span> and
+      <b>15</b> relevant lines. 
+      <span class="green"><b>12</b> lines covered</span> and
       <span class="red"><b>3</b> lines missed.</span>
     </div>
   </div>
@@ -456,91 +456,109 @@
           <code class="ruby">      @host = ENV[&quot;host&quot;]</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="7">
+        <li class="covered" data-hits="96" data-linenumber="7">
+          <span class="hits">96</span>
+          
+          <code class="ruby">      @port = ENV[&quot;port&quot;]</code>
+        </li>
+      
+        <li class="covered" data-hits="96" data-linenumber="8">
+          <span class="hits">96</span>
+          
+          <code class="ruby">      @dbuser = ENV[&quot;dbuser&quot;]</code>
+        </li>
+      
+        <li class="covered" data-hits="96" data-linenumber="9">
+          <span class="hits">96</span>
+          
+          <code class="ruby">      @dbpassword = ENV[&quot;dbpassword&quot;]</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="10">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="8">
+        <li class="never" data-hits="" data-linenumber="11">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="9">
+        <li class="covered" data-hits="1" data-linenumber="12">
           <span class="hits">1</span>
           
           <code class="ruby">    def connect</code>
         </li>
       
-        <li class="covered" data-hits="103" data-linenumber="10">
+        <li class="covered" data-hits="103" data-linenumber="13">
           <span class="hits">103</span>
           
           <code class="ruby">      begin</code>
         </li>
       
-        <li class="covered" data-hits="103" data-linenumber="11">
+        <li class="covered" data-hits="103" data-linenumber="14">
           <span class="hits">103</span>
           
-          <code class="ruby">        @connection = PG.connect( :dbname =&gt; @dbname, :host =&gt; @host, :port =&gt; 5432 )</code>
+          <code class="ruby">        @connection = PG.connect( :dbname =&gt; @dbname, :host =&gt; @host, :port =&gt; @port, :user =&gt; @dbuser, :password =&gt; @dbpassword)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="12">
+        <li class="missed" data-hits="0" data-linenumber="15">
           
           
           <code class="ruby">      rescue PG::ConnectionBad =&gt; e</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="13">
+        <li class="missed" data-hits="0" data-linenumber="16">
           
           
           <code class="ruby">        :ERROR</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="14">
+        <li class="never" data-hits="" data-linenumber="17">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="15">
+        <li class="never" data-hits="" data-linenumber="18">
           
           
           <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="16">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="17">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    def close</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="18">
-          
-          
-          <code class="ruby">      @connection = PG.close</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="19">
           
           
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="20">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def close</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="21">
+          
+          
+          <code class="ruby">      @connection = PG.close</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="22">
+          
+          
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="20">
+        <li class="never" data-hits="" data-linenumber="23">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="21">
+        <li class="never" data-hits="" data-linenumber="24">
           
           
           <code class="ruby">end</code>
