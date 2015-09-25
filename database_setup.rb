@@ -1,4 +1,4 @@
-require 'pg'
+ require 'pg'
 
 conn = PG.connect( :dbname => 'staging_twichblade', :host => '10.1.1.33', :port => '5432', :user => 'twichblade', :password => 'twichblade')
 conn.exec("create table users ( id serial primary key, username varchar(15) not null, password varchar(14) not null);")

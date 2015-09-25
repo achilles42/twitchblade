@@ -39,7 +39,7 @@ Vagrant.configure("2") do |config|
     db.vm.box = "ubuntu/trusty64"
     db.vm.network :private_network, ip: "10.1.1.33"
     db.vm.hostname = "db"
-    db.vm.synced_folder "./", "/home/vagrant/app"
+    db.vm.synced_folder "./", "/home/vagrant/app/database_setup.rb"
     db.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
     db.vm.provision "shell", privileged: false, inline: <<-SHELL
       echo "Installing Postgresql"
