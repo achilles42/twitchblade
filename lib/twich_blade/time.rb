@@ -8,7 +8,7 @@ module TwichBlade
       time_difference_in_sec = (Object::Time.new - @given_time).to_i.abs
       if time_difference_in_sec <= 59
         just_tweeted_meassage
-      elsif time_difference_in_sec > 60 && time_difference_in_sec <= 3600
+      elsif time_difference_in_sec >= 60 && time_difference_in_sec <= 3600
         minutes = time_difference_in_sec / 60
         minutes_message(minutes)
       elsif time_difference_in_sec > 3600 && time_difference_in_sec <= 216000

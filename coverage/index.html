@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-09-27T17:19:20+05:30">2015-09-27T17:19:20+05:30</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-09-27T22:36:13+05:30">2015-09-27T22:36:13+05:30</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -1295,7 +1295,7 @@
         <li class="covered" data-hits="2" data-linenumber="34">
           <span class="hits">2</span>
           
-          <code class="ruby">        result = conn.exec(&quot;insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP, $3)&quot;,[user_id, message, username])</code>
+          <code class="ruby">        result = conn.exec(&quot;insert into tweets values(DEFAULT, $1, $2, $3, $4)&quot;,[user_id, message, Time.new,username])</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="35">
@@ -1373,7 +1373,7 @@
         <li class="covered" data-hits="3" data-linenumber="47">
           <span class="hits">3</span>
           
-          <code class="ruby">        result = conn.exec(&quot;insert into tweets values (DEFAULT, $1, $2, LOCALTIMESTAMP, $3)&quot;,[user_id, id_tweet_retweet.field_values(&#39;tweet&#39;)[0].to_s, id_tweet_retweet.field_values(&#39;retweet&#39;)[0].to_s])</code>
+          <code class="ruby">        result = conn.exec(&quot;insert into tweets values (DEFAULT, $1, $2, $3, $4)&quot;,[user_id, id_tweet_retweet.field_values(&#39;tweet&#39;)[0].to_s, Time.new,id_tweet_retweet.field_values(&#39;retweet&#39;)[0].to_s])</code>
         </li>
       
         <li class="covered" data-hits="3" data-linenumber="48">
@@ -3047,7 +3047,7 @@
         <li class="covered" data-hits="3" data-linenumber="11">
           <span class="hits">3</span>
           
-          <code class="ruby">      elsif time_difference_in_sec &gt; 60 &amp;&amp; time_difference_in_sec &lt;= 3600</code>
+          <code class="ruby">      elsif time_difference_in_sec &gt;= 60 &amp;&amp; time_difference_in_sec &lt;= 3600</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="12">
