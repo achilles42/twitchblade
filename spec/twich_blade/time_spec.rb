@@ -14,6 +14,12 @@ module TwichBlade
         time_object = Time.new(time)
         expect { time_object.show }.to output(/2 minutes ago/).to_stdout
       end
+
+      it 'should be able to give hours message' do
+        time  = Object::Time.new + 13335
+        time_object = Time.new(time)
+        expect { time_object.show }.to output(/3 hours ago/).to_stdout
+      end
     end
   end
 end
