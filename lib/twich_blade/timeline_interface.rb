@@ -30,13 +30,12 @@ module TwichBlade
 
     def display_tweets(tweets)
       for tweet in 0..tweets.ntuples - 1
-        day = tweets.field_values('date_and_time')[tweet].to_time.strftime("%d")
-        month = tweets.field_values('date_and_time')[tweet].to_time.strftime("%b")
-        year = tweets.field_values('date_and_time')[tweet].to_time.strftime("%Y")
+        date = tweets.field_values('date_and_time')[tweet]
+        time = Time.new(DateTime.parse(date))
         puts "Tweet Id : #{tweets.field_values('id')[tweet].to_i * security_factor}"
         puts "Tweet :  #{tweets.field_values('tweet')[tweet]} "
-        #puts "Posted By: @#{tweets.field_values('retweet')[tweet]} | #{day} #{month} #{year} "
-        puts "Posted By: "
+        print "Posted By:#{tweets.field_values('retweet')[tweet]}  | "
+        time.show
         puts "\n-----------------------------------------------------------------------------"
       end
     end

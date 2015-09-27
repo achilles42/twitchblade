@@ -24,7 +24,8 @@ module TwichBlade
       it 'should be able to give message on the basis of tweeted date' do
         time  = Object::Time.new + 864023
         time_object = Time.new(time)
-        expect(time_object.show).to eq(time.to_time.strftime("%d %b %Y"))
+        a = "#{time.to_time.strftime("%d %b %Y")}"
+        expect { time_object.show }.to output(a).to_stdout
       end
     end
   end
