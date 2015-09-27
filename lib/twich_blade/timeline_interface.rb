@@ -35,7 +35,8 @@ module TwichBlade
         year = tweets.field_values('date_and_time')[tweet].to_time.strftime("%Y")
         puts "Tweet Id : #{tweets.field_values('id')[tweet].to_i * security_factor}"
         puts "Tweet :  #{tweets.field_values('tweet')[tweet]} "
-        puts "Posted By: @#{tweets.field_values('retweet')[tweet]} | #{day} #{month} #{year} "
+        #puts "Posted By: @#{tweets.field_values('retweet')[tweet]} | #{day} #{month} #{year} "
+        puts "Posted By: "
         puts "\n-----------------------------------------------------------------------------"
       end
     end

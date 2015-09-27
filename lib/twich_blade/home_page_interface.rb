@@ -85,7 +85,7 @@ module TwichBlade
 
     def my_wall
       following_list = Timeline.new(@user_info).followings
-      followings_wall_display(following_list)
+      following_wall_display(following_list)
     end
 
     private
@@ -96,13 +96,16 @@ module TwichBlade
         timeline_interface.process(following_username)
       end
     end
+
     def tweet_id_failure_message
       puts "Tweet Id doesn't exist!!!  Please try again"
     end
+
     def take_tweet_id
       print "\n\tEnter Tweet Id for Retweet : "
       (input.to_i / security_factor)
     end
+
     def follow_status(response_timeline, username)
       if response_timeline == nil
         puts "\t You are already following #{username}"
@@ -119,7 +122,7 @@ module TwichBlade
       puts "------------- * My Timeline * ----------------"
     end
 
-      def successfully_tweeted_message
+    def successfully_tweeted_message
       puts "\tYour Tweet was posted!!!"
     end
 
