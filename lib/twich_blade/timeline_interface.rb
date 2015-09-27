@@ -36,7 +36,7 @@ module TwichBlade
         puts "Tweet Id : #{tweets.field_values('id')[tweet].to_i * security_factor}"
         puts "Tweet :  #{tweets.field_values('tweet')[tweet]} "
         puts "Posted By: @#{tweets.field_values('retweet')[tweet]} | #{day} #{month} #{year} "
-        puts "\n--------------------------------------------------------------------"
+        puts "\n-----------------------------------------------------------------------------"
       end
     end
 
