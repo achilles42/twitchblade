@@ -14,26 +14,26 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-09-27T16:32:13+05:30">2015-09-27T16:32:13+05:30</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-09-27T16:40:48+05:30">2015-09-27T16:40:48+05:30</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">31.47%</span></span>
+    (<span class="covered_percent"><span class="red">32.33%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.31
+         0.32
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>13</b> files in total.
-    <b>394</b> relevant lines. 
-    <span class="green"><b>124</b> lines covered</span> and
+    <b>399</b> relevant lines. 
+    <span class="green"><b>129</b> lines covered</span> and
     <span class="red"><b>270</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -122,12 +122,12 @@
       
       <tr>
         <td class="strong"><a href="#476f2ee5ae7d14eda0debe90683f9391442dfd47" class="src_link" title="lib/twich_blade/time.rb">lib/twich_blade/time.rb</a></td>
-        <td class="green strong">91.67 %</td>
-        <td>21</td>
-        <td>12</td>
-        <td>11</td>
+        <td class="green strong">94.12 %</td>
+        <td>28</td>
+        <td>17</td>
+        <td>16</td>
         <td>1</td>
-        <td>0.9</td>
+        <td>1.1</td>
       </tr>
       
       <tr>
@@ -2863,10 +2863,10 @@
         <div class="source_table" id="476f2ee5ae7d14eda0debe90683f9391442dfd47">
   <div class="header">
     <h3>lib/twich_blade/time.rb</h3>
-    <h4><span class="green">91.67 %</span> covered</h4>
+    <h4><span class="green">94.12 %</span> covered</h4>
     <div>
-      <b>12</b> relevant lines. 
-      <span class="green"><b>11</b> lines covered</span> and
+      <b>17</b> relevant lines. 
+      <span class="green"><b>16</b> lines covered</span> and
       <span class="red"><b>1</b> lines missed.</span>
     </div>
   </div>
@@ -2892,8 +2892,8 @@
           <code class="ruby">    def initialize(given_time)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="4">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="4">
+          <span class="hits">2</span>
           
           <code class="ruby">      @given_time = given_time</code>
         </li>
@@ -2916,16 +2916,16 @@
           <code class="ruby">    def show</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="8">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="8">
+          <span class="hits">2</span>
           
-          <code class="ruby">      diff_in_sec = (Object::Time.new - @given_time).to_i.abs</code>
+          <code class="ruby">      time_difference_in_sec = (Object::Time.new - @given_time).to_i.abs</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="9">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="9">
+          <span class="hits">2</span>
           
-          <code class="ruby">      if diff_in_sec &lt;= 59</code>
+          <code class="ruby">      if time_difference_in_sec &lt;= 59</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="10">
@@ -2934,67 +2934,109 @@
           <code class="ruby">        just_tweeted_meassage</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="11">
+        <li class="covered" data-hits="1" data-linenumber="11">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      else</code>
+          <code class="ruby">      elsif time_difference_in_sec &gt; 60 &amp;&amp; time_difference_in_sec &lt;= 3600</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="12">
+        <li class="covered" data-hits="1" data-linenumber="12">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">        @given_time.to_time.strftime(&quot;%d %b %Y&quot;)</code>
+          <code class="ruby">        minutes = time_difference_in_sec/60</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="13">
+        <li class="covered" data-hits="1" data-linenumber="13">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      end</code>
+          <code class="ruby">        minutes_message(minutes)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="14">
           
           
+          <code class="ruby">      else</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="15">
+          
+          
+          <code class="ruby">        @given_time.to_time.strftime(&quot;%d %b %Y&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="16">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="17">
+          
+          
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="15">
+        <li class="never" data-hits="" data-linenumber="18">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="16">
+        <li class="covered" data-hits="1" data-linenumber="19">
           <span class="hits">1</span>
           
           <code class="ruby">    private</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="17">
+        <li class="covered" data-hits="1" data-linenumber="20">
           <span class="hits">1</span>
           
           <code class="ruby">    def just_tweeted_meassage</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="18">
+        <li class="covered" data-hits="1" data-linenumber="21">
           <span class="hits">1</span>
           
-          <code class="ruby">      puts &quot;Just Tweeted&quot;</code>
+          <code class="ruby">      puts &#39;Just Tweeted&#39;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="19">
+        <li class="never" data-hits="" data-linenumber="22">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="20">
+        <li class="never" data-hits="" data-linenumber="23">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="24">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def minutes_message(minutes)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="25">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      puts &quot;#{minutes} minutes ago&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="26">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="27">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="21">
+        <li class="never" data-hits="" data-linenumber="28">
           
           
           <code class="ruby">end</code>
