@@ -11,7 +11,7 @@ module TwichBlade
       elsif time_difference_in_sec > 60 && time_difference_in_sec <= 3600
         minutes = time_difference_in_sec / 60
         minutes_message(minutes)
-      elsif time_difference_in_sec > 3600 && time_difference_in_sec <= 216000
+      elsif time_difference_in_sec > 3600 && time_difference_in_sec <= 86400
         hours = time_difference_in_sec / 3600
         hours_message(hours)
       else
