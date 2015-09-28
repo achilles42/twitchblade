@@ -34,7 +34,7 @@ module TwichBlade
         time = Time.new(DateTime.parse(date))
         puts "Tweet Id : #{tweets.field_values('id')[tweet].to_i * security_factor}"
         puts "Tweet :  #{tweets.field_values('tweet')[tweet]} "
-        print "Posted By:#{tweets.field_values('retweet')[tweet]}  | "
+        print "Posted By: @#{tweets.field_values('retweet')[tweet]}  | "
         time.show
         puts "\n-----------------------------------------------------------------------------"
       end
