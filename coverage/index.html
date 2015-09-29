@@ -14,26 +14,26 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-09-30T00:35:56+05:30">2015-09-30T00:35:56+05:30</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-09-30T00:38:21+05:30">2015-09-30T00:38:21+05:30</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">94.44%</span></span>
+    (<span class="covered_percent"><span class="green">94.49%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.42
+         2.45
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>24</b> files in total.
-    <b>1008</b> relevant lines. 
-    <span class="green"><b>952</b> lines covered</span> and
+    <b>1016</b> relevant lines. 
+    <span class="green"><b>960</b> lines covered</span> and
     <span class="red"><b>56</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -67,7 +67,7 @@
         <td>11</td>
         <td>8</td>
         <td>3</td>
-        <td>29.3</td>
+        <td>30.1</td>
       </tr>
       
       <tr>
@@ -77,7 +77,7 @@
         <td>52</td>
         <td>52</td>
         <td>0</td>
-        <td>6.4</td>
+        <td>6.7</td>
       </tr>
       
       <tr>
@@ -183,11 +183,11 @@
       <tr>
         <td class="strong"><a href="#46e900b48089c9469b152ba053d7868389a9f9ae" class="src_link" title="spec/twich_blade/database_scripts_spec/timeline_storage_spec.rb">spec/twich_blade/database_scripts_spec/timeline_storage_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>89</td>
-        <td>71</td>
-        <td>71</td>
+        <td>99</td>
+        <td>79</td>
+        <td>79</td>
         <td>0</td>
-        <td>2.2</td>
+        <td>2.3</td>
       </tr>
       
       <tr>
@@ -476,8 +476,8 @@
           <code class="ruby">    def initialize</code>
         </li>
       
-        <li class="covered" data-hits="109" data-linenumber="5">
-          <span class="hits">109</span>
+        <li class="covered" data-hits="112" data-linenumber="5">
+          <span class="hits">112</span>
           
           <code class="ruby">      @dbname, @host, @port, @dbuser, @dbpassword = ENV[&quot;dbname&quot;], ENV[&quot;host&quot;], ENV[&quot;port&quot;], ENV[&quot;dbuser&quot;], ENV[&quot;dbpassword&quot;]</code>
         </li>
@@ -500,14 +500,14 @@
           <code class="ruby">    def connect</code>
         </li>
       
-        <li class="covered" data-hits="104" data-linenumber="9">
-          <span class="hits">104</span>
+        <li class="covered" data-hits="107" data-linenumber="9">
+          <span class="hits">107</span>
           
           <code class="ruby">      begin</code>
         </li>
       
-        <li class="covered" data-hits="104" data-linenumber="10">
-          <span class="hits">104</span>
+        <li class="covered" data-hits="107" data-linenumber="10">
+          <span class="hits">107</span>
           
           <code class="ruby">        @connection = PG.connect( :dbname =&gt; @dbname, :host =&gt; @host, :port =&gt; @port, :user =&gt; @dbuser, :password =&gt; @dbpassword)</code>
         </li>
@@ -614,8 +614,8 @@
           <code class="ruby">    def initialize(username)</code>
         </li>
       
-        <li class="covered" data-hits="20" data-linenumber="5">
-          <span class="hits">20</span>
+        <li class="covered" data-hits="21" data-linenumber="5">
+          <span class="hits">21</span>
           
           <code class="ruby">      @username = username</code>
         </li>
@@ -692,32 +692,32 @@
           <code class="ruby">    def get_user_id</code>
         </li>
       
-        <li class="covered" data-hits="19" data-linenumber="18">
-          <span class="hits">19</span>
+        <li class="covered" data-hits="20" data-linenumber="18">
+          <span class="hits">20</span>
           
           <code class="ruby">      conn = connect</code>
         </li>
       
-        <li class="covered" data-hits="19" data-linenumber="19">
-          <span class="hits">19</span>
+        <li class="covered" data-hits="20" data-linenumber="19">
+          <span class="hits">20</span>
           
           <code class="ruby">      return :ERROR if conn == :ERROR</code>
         </li>
       
-        <li class="covered" data-hits="19" data-linenumber="20">
-          <span class="hits">19</span>
+        <li class="covered" data-hits="20" data-linenumber="20">
+          <span class="hits">20</span>
           
           <code class="ruby">      result = conn.exec(&quot;select id from users where username = $1&quot;, [@username]).field_values(&#39;id&#39;)[0].to_i</code>
         </li>
       
-        <li class="covered" data-hits="19" data-linenumber="21">
-          <span class="hits">19</span>
+        <li class="covered" data-hits="20" data-linenumber="21">
+          <span class="hits">20</span>
           
           <code class="ruby">      conn.close</code>
         </li>
       
-        <li class="covered" data-hits="19" data-linenumber="22">
-          <span class="hits">19</span>
+        <li class="covered" data-hits="20" data-linenumber="22">
+          <span class="hits">20</span>
           
           <code class="ruby">      result</code>
         </li>
@@ -938,32 +938,32 @@
           <code class="ruby">    def get_no_of_followings(user_id)</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="59">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="59">
+          <span class="hits">4</span>
           
           <code class="ruby">      conn = connect</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="60">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="60">
+          <span class="hits">4</span>
           
           <code class="ruby">      return :ERROR if conn == :ERROR</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="61">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="61">
+          <span class="hits">4</span>
           
           <code class="ruby">      result = conn.exec(&quot;select count(*) from followers where user_id = $1&quot;, [user_id]).field_values(&#39;count&#39;)[0].to_i</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="62">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="62">
+          <span class="hits">4</span>
           
           <code class="ruby">      conn.close</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="63">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="63">
+          <span class="hits">4</span>
           
           <code class="ruby">      result</code>
         </li>
@@ -992,20 +992,20 @@
           <code class="ruby">    def connect</code>
         </li>
       
-        <li class="covered" data-hits="32" data-linenumber="68">
-          <span class="hits">32</span>
+        <li class="covered" data-hits="34" data-linenumber="68">
+          <span class="hits">34</span>
           
           <code class="ruby">      conn = DBConnection.new.connect</code>
         </li>
       
-        <li class="covered" data-hits="32" data-linenumber="69">
-          <span class="hits">32</span>
+        <li class="covered" data-hits="34" data-linenumber="69">
+          <span class="hits">34</span>
           
           <code class="ruby">      return :ERROR if conn == :ERROR</code>
         </li>
       
-        <li class="covered" data-hits="32" data-linenumber="70">
-          <span class="hits">32</span>
+        <li class="covered" data-hits="34" data-linenumber="70">
+          <span class="hits">34</span>
           
           <code class="ruby">      conn</code>
         </li>
@@ -4469,8 +4469,8 @@
     <h3>spec/twich_blade/database_scripts_spec/timeline_storage_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>71</b> relevant lines. 
-      <span class="green"><b>71</b> lines covered</span> and
+      <b>79</b> relevant lines. 
+      <span class="green"><b>79</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -4508,80 +4508,80 @@
           <code class="ruby">    before(:each) do</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="6">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="7" data-linenumber="6">
+          <span class="hits">7</span>
           
           <code class="ruby">      @conn = DBConnection.new.connect</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="7">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="7" data-linenumber="7">
+          <span class="hits">7</span>
           
           <code class="ruby">      @conn.exec(&quot;insert into users(id, username, password) values(DEFAULT, &#39;foo1&#39;, &#39;bar1&#39;)&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="8">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="7" data-linenumber="8">
+          <span class="hits">7</span>
           
           <code class="ruby">      @conn.exec(&quot;insert into users(id, username, password) values(DEFAULT, &#39;foo2&#39;, &#39;bar2&#39;)&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="9">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="7" data-linenumber="9">
+          <span class="hits">7</span>
           
           <code class="ruby">      @conn.exec(&quot;insert into users(id, username, password) values(DEFAULT, &#39;foo3&#39;, &#39;bar3&#39;)&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="10">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="7" data-linenumber="10">
+          <span class="hits">7</span>
           
           <code class="ruby">      user_id = @conn.exec(&quot;select id from users where username = $1&quot;, [&#39;foo1&#39;]).field_values(&#39;id&#39;)[0].to_i</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="11">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="7" data-linenumber="11">
+          <span class="hits">7</span>
           
           <code class="ruby">      message1 = &quot;this is 1st tweet&quot;</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="12">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="7" data-linenumber="12">
+          <span class="hits">7</span>
           
           <code class="ruby">      message2 = &quot;this is 2nd tweet&quot;</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="13">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="7" data-linenumber="13">
+          <span class="hits">7</span>
           
           <code class="ruby">      message3 = &quot;this is 3rd tweet&quot;</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="14">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="7" data-linenumber="14">
+          <span class="hits">7</span>
           
           <code class="ruby">      @conn.exec(&quot;insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP, DEFAULT)&quot;, [user_id, message1])</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="15">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="7" data-linenumber="15">
+          <span class="hits">7</span>
           
           <code class="ruby">      @conn.exec(&quot;insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP, DEFAULT)&quot;, [user_id, message2])</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="16">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="7" data-linenumber="16">
+          <span class="hits">7</span>
           
           <code class="ruby">      @conn.exec(&quot;insert into tweets values(DEFAULT, $1, $2, LOCALTIMESTAMP, DEFAULT)&quot;, [user_id, message3])</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="17">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="7" data-linenumber="17">
+          <span class="hits">7</span>
           
           <code class="ruby">      @user_id_foo2 = @conn.exec(&quot;select id from users where username = $1&quot;, [&#39;foo2&#39;]).field_values(&#39;id&#39;)[0].to_i</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="18">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="7" data-linenumber="18">
+          <span class="hits">7</span>
           
           <code class="ruby">      @user_id_foo3 = @conn.exec(&quot;select id from users where username = $1&quot;, [&#39;foo3&#39;]).field_values(&#39;id&#39;)[0].to_i</code>
         </li>
@@ -4604,26 +4604,26 @@
           <code class="ruby">    after(:each) do</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="22">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="7" data-linenumber="22">
+          <span class="hits">7</span>
           
           <code class="ruby">      @conn.exec(&quot;delete from tweets&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="23">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="7" data-linenumber="23">
+          <span class="hits">7</span>
           
           <code class="ruby">      @conn.exec(&quot;delete from followers&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="24">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="7" data-linenumber="24">
+          <span class="hits">7</span>
           
           <code class="ruby">      @conn.exec(&quot;delete from users&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="25">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="7" data-linenumber="25">
+          <span class="hits">7</span>
           
           <code class="ruby">      @conn.close</code>
         </li>
@@ -5003,10 +5003,70 @@
         <li class="never" data-hits="" data-linenumber="88">
           
           
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="89">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    it &#39;should be able to give followings count&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="90">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      username = &#39;foo1&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="91">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      result = [&#39;foo2&#39;, &#39;foo3&#39;]</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="92">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      timeline_storage = TimelineStorage.new(username)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="93">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      user_id = timeline_storage.get_user_id</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="94">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      @conn.exec(&quot;insert into followers values($1, $2)&quot;, [user_id, @user_id_foo2])</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="95">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      @conn.exec(&quot;insert into followers values($1, $2)&quot;, [user_id, @user_id_foo3])</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="96">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      expect(timeline_storage.get_no_of_followings(user_id)).to eq(2)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="97">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="98">
+          
+          
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="89">
+        <li class="never" data-hits="" data-linenumber="99">
           
           
           <code class="ruby">end</code>

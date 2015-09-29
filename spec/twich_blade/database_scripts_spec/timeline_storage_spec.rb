@@ -85,5 +85,15 @@ module PostgresDatabase
       @conn.exec("insert into followers values($1, $2)", [user_id, @user_id_foo3])
       expect(timeline_storage.followings_username(2, user_id, @conn)).to eq(result)
     end
+
+    it 'should be able to give followings count' do
+      username = 'foo1'
+      result = ['foo2', 'foo3']
+      timeline_storage = TimelineStorage.new(username)
+      user_id = timeline_storage.get_user_id
+      @conn.exec("insert into followers values($1, $2)", [user_id, @user_id_foo2])
+      @conn.exec("insert into followers values($1, $2)", [user_id, @user_id_foo3])
+      expect(timeline_storage.get_no_of_followings(user_id)).to eq(2)
+    end
   end
 end
