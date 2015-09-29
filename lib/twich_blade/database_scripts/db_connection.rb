@@ -2,11 +2,7 @@ module PostgresDatabase
   #database connection
   class DBConnection
     def initialize
-      @dbname = ENV["dbname"]
-      @host = ENV["host"]
-      @port = ENV["port"]
-      @dbuser = ENV["dbuser"]
-      @dbpassword = ENV["dbpassword"]
+      @dbname, @host, @port, @dbuser, @dbpassword = ENV["dbname"], ENV["host"], ENV["port"], ENV["dbuser"], ENV["dbpassword"]
     end
 
     def connect
@@ -18,7 +14,7 @@ module PostgresDatabase
     end
 
     def close
-      @connection = PG.close
+      @connection.close
     end
   end
 end

@@ -4,6 +4,9 @@
 Vagrant.configure("2") do |config|
   config.vm.define :cli do |cli|
     cli.vm.box = "ubuntu/trusty64"
+    if Vagrant.has_plugin?("vagrant-timezone")
+      config.timezone.value = "IST"
+    end
     cli.vm.network :private_network, ip: "10.1.1.22"
     cli.vm.hostname = "cli"
     cli.vm.synced_folder "./", "/home/vagrant/app"
@@ -37,6 +40,9 @@ Vagrant.configure("2") do |config|
 
   config.vm.define :db do |db|
     db.vm.box = "ubuntu/trusty64"
+    if Vagrant.has_plugin?("vagrant-timezone")
+      config.timezone.value = "IST"
+    end
     db.vm.network :private_network, ip: "10.1.1.33"
     db.vm.hostname = "db"
     db.vm.synced_folder "./", "/home/vagrant/app/database_setup.rb"
@@ -74,6 +80,7 @@ Vagrant.configure("2") do |config|
       cd ~/app
       ~/.rbenv/shims/bundle install
       ~/.rbenv/shims/ruby ~/app/bin/database_setup.rb
+
     SHELL
   end
 end
