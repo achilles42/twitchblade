@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-09-30T00:55:25+05:30">2015-09-30T00:55:25+05:30</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-09-30T00:57:37+05:30">2015-09-30T00:57:37+05:30</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,7 +25,7 @@
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.78
+         0.8
        </span>
     </span> hits/line)
   </h2>
@@ -67,7 +67,7 @@
         <td>11</td>
         <td>8</td>
         <td>3</td>
-        <td>6.5</td>
+        <td>6.9</td>
       </tr>
       
       <tr>
@@ -167,7 +167,7 @@
         <td>31</td>
         <td>12</td>
         <td>19</td>
-        <td>0.8</td>
+        <td>0.9</td>
       </tr>
       
       <tr>
@@ -366,8 +366,8 @@
           <code class="ruby">    def initialize</code>
         </li>
       
-        <li class="covered" data-hits="27" data-linenumber="5">
-          <span class="hits">27</span>
+        <li class="covered" data-hits="29" data-linenumber="5">
+          <span class="hits">29</span>
           
           <code class="ruby">      @dbname, @host, @port, @dbuser, @dbpassword = ENV[&quot;dbname&quot;], ENV[&quot;host&quot;], ENV[&quot;port&quot;], ENV[&quot;dbuser&quot;], ENV[&quot;dbpassword&quot;]</code>
         </li>
@@ -390,14 +390,14 @@
           <code class="ruby">    def connect</code>
         </li>
       
-        <li class="covered" data-hits="20" data-linenumber="9">
-          <span class="hits">20</span>
+        <li class="covered" data-hits="21" data-linenumber="9">
+          <span class="hits">21</span>
           
           <code class="ruby">      begin</code>
         </li>
       
-        <li class="covered" data-hits="20" data-linenumber="10">
-          <span class="hits">20</span>
+        <li class="covered" data-hits="21" data-linenumber="10">
+          <span class="hits">21</span>
           
           <code class="ruby">        @connection = PG.connect( :dbname =&gt; @dbname, :host =&gt; @host, :port =&gt; @port, :user =&gt; @dbuser, :password =&gt; @dbpassword)</code>
         </li>
@@ -960,8 +960,8 @@
           <code class="ruby">    def initialize</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="5">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="8" data-linenumber="5">
+          <span class="hits">8</span>
           
           <code class="ruby">      @conn = DBConnection.new</code>
         </li>
@@ -1884,26 +1884,26 @@
           <code class="ruby">    def re_tweet_by_tweet_id</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="81">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="81">
+          <span class="hits">4</span>
           
           <code class="ruby">      tweet_id = take_tweet_id</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="82">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="82">
+          <span class="hits">4</span>
           
           <code class="ruby">      response = User.new(@user_info, &quot;&quot;).re_tweet(tweet_id)</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="83">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="83">
+          <span class="hits">4</span>
           
           <code class="ruby">      if response == :FAILED</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="84">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="84">
+          <span class="hits">2</span>
           
           <code class="ruby">        tweet_id_failure_message</code>
         </li>
@@ -3750,20 +3750,20 @@
           <code class="ruby">    def initialize(username, password)</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="5">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="6" data-linenumber="5">
+          <span class="hits">6</span>
           
           <code class="ruby">      @username = username</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="6">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="6" data-linenumber="6">
+          <span class="hits">6</span>
           
           <code class="ruby">      @password = password</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="7">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="6" data-linenumber="7">
+          <span class="hits">6</span>
           
           <code class="ruby">      @user_storage = PostgresDatabase::UserStorage.new</code>
         </li>
