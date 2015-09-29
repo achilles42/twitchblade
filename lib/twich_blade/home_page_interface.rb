@@ -73,13 +73,17 @@ module TwichBlade
       if others_timeline == :FAILED
         error_messege
       else
-        tweet_id = take_tweet_id
-        response = User.new(@user_info, "").re_tweet(tweet_id)
-        if response == :FAILED
-          tweet_id_failure_message
-        else
-          successfully_tweeted_message
-        end
+        re_tweet_by_tweet_id
+      end
+    end
+
+    def re_tweet_by_tweet_id
+      tweet_id = take_tweet_id
+      response = User.new(@user_info, "").re_tweet(tweet_id)
+      if response == :FAILED
+        tweet_id_failure_message
+      else
+        successfully_tweeted_message
       end
     end
 

@@ -138,6 +138,14 @@ module TwichBlade
       end
     end
 
+    it 'should be able to call tweet_id_failure_message' do
+      tweet_id = 12345
+      allow_any_instance_of(HomePageInterface).to receive(:take_tweet_id).and_return(tweet_id)
+      allow_any_instance_of(User).to receive(:re_tweet).with(tweet_id).and_return(:SUCCESS)
+      expect_any_instance_of(HomePageInterface).to receive(:successfully_tweeted_message)
+      @home_page_interface.re_tweet_by_tweet_id
+    end
+
     it 'should be able to display wall' do
       following_username = 'foo'
       allow_any_instance_of(Timeline).to receive(:followings).and_return(following_username)
